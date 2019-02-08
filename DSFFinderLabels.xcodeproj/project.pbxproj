@@ -10,10 +10,26 @@
 		2332CD95220D420B00D6ABE4 /* DSFFinderLabels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2332CD8B220D420B00D6ABE4 /* DSFFinderLabels.framework */; };
 		2332CD9A220D420B00D6ABE4 /* DSFFinderLabelsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2332CD99220D420B00D6ABE4 /* DSFFinderLabelsTests.swift */; };
 		2332CD9C220D420B00D6ABE4 /* DSFFinderLabels.h in Headers */ = {isa = PBXBuildFile; fileRef = 2332CD8E220D420B00D6ABE4 /* DSFFinderLabels.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2332CDA6220D422100D6ABE4 /* DSFFinderLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2332CDA5220D422100D6ABE4 /* DSFFinderLabels.swift */; };
+		2332CDAE220D428E00D6ABE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2332CDAD220D428E00D6ABE4 /* AppDelegate.swift */; };
+		2332CDB0220D428E00D6ABE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2332CDAF220D428E00D6ABE4 /* Assets.xcassets */; };
+		2332CDB3220D428E00D6ABE4 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2332CDB1220D428E00D6ABE4 /* MainMenu.xib */; };
+		2332CDBA220D42A000D6ABE4 /* DSFFinderLabels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2332CD8B220D420B00D6ABE4 /* DSFFinderLabels.framework */; };
+		2332CDBC220D625F00D6ABE4 /* CircleColorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2332CDBB220D625F00D6ABE4 /* CircleColorButton.swift */; };
+		2332CDC7220D81AE00D6ABE4 /* DSFFinderLabelsTests_objc.m in Sources */ = {isa = PBXBuildFile; fileRef = 2332CDC6220D81AE00D6ABE4 /* DSFFinderLabelsTests_objc.m */; };
+		2332CDC9220D81AE00D6ABE4 /* DSFFinderLabels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2332CD8B220D420B00D6ABE4 /* DSFFinderLabels.framework */; };
+		234A4037220E4CD900E84403 /* DSFFinderLabels+objc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234A4036220E4CD900E84403 /* DSFFinderLabels+objc.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		2332CD96220D420B00D6ABE4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2332CD82220D420B00D6ABE4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2332CD8A220D420B00D6ABE4;
+			remoteInfo = DSFFinderLabels;
+		};
+		2332CDCA220D81AE00D6ABE4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2332CD82220D420B00D6ABE4 /* Project object */;
 			proxyType = 1;
@@ -29,6 +45,20 @@
 		2332CD94220D420B00D6ABE4 /* DSFFinderLabelsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DSFFinderLabelsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2332CD99220D420B00D6ABE4 /* DSFFinderLabelsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSFFinderLabelsTests.swift; sourceTree = "<group>"; };
 		2332CD9B220D420B00D6ABE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2332CDA5220D422100D6ABE4 /* DSFFinderLabels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSFFinderLabels.swift; sourceTree = "<group>"; };
+		2332CDAB220D428D00D6ABE4 /* DSFFinderLabelsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DSFFinderLabelsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2332CDAD220D428E00D6ABE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2332CDAF220D428E00D6ABE4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2332CDB2220D428E00D6ABE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		2332CDB4220D428E00D6ABE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2332CDB5220D428E00D6ABE4 /* DSFFinderLabelsDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DSFFinderLabelsDemo.entitlements; sourceTree = "<group>"; };
+		2332CDBB220D625F00D6ABE4 /* CircleColorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleColorButton.swift; sourceTree = "<group>"; };
+		2332CDBD220D6D9700D6ABE4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		2332CDBE220D6D9700D6ABE4 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		2332CDC4220D81AE00D6ABE4 /* DSFFinderLabelsTests_objc.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DSFFinderLabelsTests_objc.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2332CDC6220D81AE00D6ABE4 /* DSFFinderLabelsTests_objc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DSFFinderLabelsTests_objc.m; sourceTree = "<group>"; };
+		2332CDC8220D81AE00D6ABE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		234A4036220E4CD900E84403 /* DSFFinderLabels+objc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DSFFinderLabels+objc.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,15 +77,36 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2332CDA8220D428D00D6ABE4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2332CDBA220D42A000D6ABE4 /* DSFFinderLabels.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2332CDC1220D81AE00D6ABE4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2332CDC9220D81AE00D6ABE4 /* DSFFinderLabels.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		2332CD81220D420B00D6ABE4 = {
 			isa = PBXGroup;
 			children = (
+				2332CDBE220D6D9700D6ABE4 /* LICENSE */,
+				2332CDBD220D6D9700D6ABE4 /* README.md */,
 				2332CD8D220D420B00D6ABE4 /* DSFFinderLabels */,
 				2332CD98220D420B00D6ABE4 /* DSFFinderLabelsTests */,
+				2332CDC5220D81AE00D6ABE4 /* DSFFinderLabelsTests_objc */,
+				2332CDAC220D428E00D6ABE4 /* DSFFinderLabelsDemo */,
 				2332CD8C220D420B00D6ABE4 /* Products */,
+				2332CDB9220D42A000D6ABE4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +115,8 @@
 			children = (
 				2332CD8B220D420B00D6ABE4 /* DSFFinderLabels.framework */,
 				2332CD94220D420B00D6ABE4 /* DSFFinderLabelsTests.xctest */,
+				2332CDAB220D428D00D6ABE4 /* DSFFinderLabelsDemo.app */,
+				2332CDC4220D81AE00D6ABE4 /* DSFFinderLabelsTests_objc.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -73,6 +126,8 @@
 			children = (
 				2332CD8E220D420B00D6ABE4 /* DSFFinderLabels.h */,
 				2332CD8F220D420B00D6ABE4 /* Info.plist */,
+				2332CDA5220D422100D6ABE4 /* DSFFinderLabels.swift */,
+				234A4036220E4CD900E84403 /* DSFFinderLabels+objc.swift */,
 			);
 			path = DSFFinderLabels;
 			sourceTree = "<group>";
@@ -84,6 +139,35 @@
 				2332CD9B220D420B00D6ABE4 /* Info.plist */,
 			);
 			path = DSFFinderLabelsTests;
+			sourceTree = "<group>";
+		};
+		2332CDAC220D428E00D6ABE4 /* DSFFinderLabelsDemo */ = {
+			isa = PBXGroup;
+			children = (
+				2332CDAD220D428E00D6ABE4 /* AppDelegate.swift */,
+				2332CDBB220D625F00D6ABE4 /* CircleColorButton.swift */,
+				2332CDAF220D428E00D6ABE4 /* Assets.xcassets */,
+				2332CDB1220D428E00D6ABE4 /* MainMenu.xib */,
+				2332CDB4220D428E00D6ABE4 /* Info.plist */,
+				2332CDB5220D428E00D6ABE4 /* DSFFinderLabelsDemo.entitlements */,
+			);
+			path = DSFFinderLabelsDemo;
+			sourceTree = "<group>";
+		};
+		2332CDB9220D42A000D6ABE4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2332CDC5220D81AE00D6ABE4 /* DSFFinderLabelsTests_objc */ = {
+			isa = PBXGroup;
+			children = (
+				2332CDC6220D81AE00D6ABE4 /* DSFFinderLabelsTests_objc.m */,
+				2332CDC8220D81AE00D6ABE4 /* Info.plist */,
+			);
+			path = DSFFinderLabelsTests_objc;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,6 +220,41 @@
 			productReference = 2332CD94220D420B00D6ABE4 /* DSFFinderLabelsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		2332CDAA220D428D00D6ABE4 /* DSFFinderLabelsDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2332CDB6220D428E00D6ABE4 /* Build configuration list for PBXNativeTarget "DSFFinderLabelsDemo" */;
+			buildPhases = (
+				2332CDA7220D428D00D6ABE4 /* Sources */,
+				2332CDA8220D428D00D6ABE4 /* Frameworks */,
+				2332CDA9220D428D00D6ABE4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DSFFinderLabelsDemo;
+			productName = DSFFinderLabelsDemo;
+			productReference = 2332CDAB220D428D00D6ABE4 /* DSFFinderLabelsDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2332CDC3220D81AE00D6ABE4 /* DSFFinderLabelsTests_objc */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2332CDCC220D81AE00D6ABE4 /* Build configuration list for PBXNativeTarget "DSFFinderLabelsTests_objc" */;
+			buildPhases = (
+				2332CDC0220D81AE00D6ABE4 /* Sources */,
+				2332CDC1220D81AE00D6ABE4 /* Frameworks */,
+				2332CDC2220D81AE00D6ABE4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2332CDCB220D81AE00D6ABE4 /* PBXTargetDependency */,
+			);
+			name = DSFFinderLabelsTests_objc;
+			productName = DSFFinderLabelsTests_objc;
+			productReference = 2332CDC4220D81AE00D6ABE4 /* DSFFinderLabelsTests_objc.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -148,8 +267,20 @@
 				TargetAttributes = {
 					2332CD8A220D420B00D6ABE4 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 					2332CD93220D420B00D6ABE4 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					2332CDAA220D428D00D6ABE4 = {
+						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
+					};
+					2332CDC3220D81AE00D6ABE4 = {
 						CreatedOnToolsVersion = 10.1;
 					};
 				};
@@ -160,6 +291,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 2332CD81220D420B00D6ABE4;
 			productRefGroup = 2332CD8C220D420B00D6ABE4 /* Products */;
@@ -168,6 +300,8 @@
 			targets = (
 				2332CD8A220D420B00D6ABE4 /* DSFFinderLabels */,
 				2332CD93220D420B00D6ABE4 /* DSFFinderLabelsTests */,
+				2332CDAA220D428D00D6ABE4 /* DSFFinderLabelsDemo */,
+				2332CDC3220D81AE00D6ABE4 /* DSFFinderLabelsTests_objc */,
 			);
 		};
 /* End PBXProject section */
@@ -187,6 +321,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2332CDA9220D428D00D6ABE4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2332CDB0220D428E00D6ABE4 /* Assets.xcassets in Resources */,
+				2332CDB3220D428E00D6ABE4 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2332CDC2220D81AE00D6ABE4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -194,6 +344,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				234A4037220E4CD900E84403 /* DSFFinderLabels+objc.swift in Sources */,
+				2332CDA6220D422100D6ABE4 /* DSFFinderLabels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,6 +357,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2332CDA7220D428D00D6ABE4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2332CDAE220D428E00D6ABE4 /* AppDelegate.swift in Sources */,
+				2332CDBC220D625F00D6ABE4 /* CircleColorButton.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2332CDC0220D81AE00D6ABE4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2332CDC7220D81AE00D6ABE4 /* DSFFinderLabelsTests_objc.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -213,7 +382,23 @@
 			target = 2332CD8A220D420B00D6ABE4 /* DSFFinderLabels */;
 			targetProxy = 2332CD96220D420B00D6ABE4 /* PBXContainerItemProxy */;
 		};
+		2332CDCB220D81AE00D6ABE4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2332CD8A220D420B00D6ABE4 /* DSFFinderLabels */;
+			targetProxy = 2332CDCA220D81AE00D6ABE4 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2332CDB1220D428E00D6ABE4 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2332CDB2220D428E00D6ABE4 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		2332CD9D220D420B00D6ABE4 /* Debug */ = {
@@ -340,6 +525,7 @@
 		2332CDA0220D420B00D6ABE4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -359,6 +545,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.darrenford.DSFFinderLabels;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
@@ -366,6 +553,7 @@
 		2332CDA1220D420B00D6ABE4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -392,6 +580,7 @@
 		2332CDA3220D420B00D6ABE4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 3L6RK3LGGW;
@@ -410,6 +599,7 @@
 		2332CDA4220D420B00D6ABE4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 3L6RK3LGGW;
@@ -422,6 +612,78 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.darrenford.DSFFinderLabelsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
+			};
+			name = Release;
+		};
+		2332CDB7220D428E00D6ABE4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 3L6RK3LGGW;
+				INFOPLIST_FILE = DSFFinderLabelsDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.darrenford.DSFFinderLabelsDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Debug;
+		};
+		2332CDB8220D428E00D6ABE4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 3L6RK3LGGW;
+				INFOPLIST_FILE = DSFFinderLabelsDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.darrenford.DSFFinderLabelsDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Release;
+		};
+		2332CDCD220D81AE00D6ABE4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 3L6RK3LGGW;
+				INFOPLIST_FILE = DSFFinderLabelsTests_objc/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.darrenford.DSFFinderLabelsTests-objc";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		2332CDCE220D81AE00D6ABE4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 3L6RK3LGGW;
+				INFOPLIST_FILE = DSFFinderLabelsTests_objc/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.darrenford.DSFFinderLabelsTests-objc";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
@@ -451,6 +713,24 @@
 			buildConfigurations = (
 				2332CDA3220D420B00D6ABE4 /* Debug */,
 				2332CDA4220D420B00D6ABE4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2332CDB6220D428E00D6ABE4 /* Build configuration list for PBXNativeTarget "DSFFinderLabelsDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2332CDB7220D428E00D6ABE4 /* Debug */,
+				2332CDB8220D428E00D6ABE4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2332CDCC220D81AE00D6ABE4 /* Build configuration list for PBXNativeTarget "DSFFinderLabelsTests_objc" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2332CDCD220D81AE00D6ABE4 /* Debug */,
+				2332CDCE220D81AE00D6ABE4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
