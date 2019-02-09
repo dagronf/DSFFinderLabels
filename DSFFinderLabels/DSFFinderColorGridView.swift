@@ -83,12 +83,57 @@ class DSFFinderColorCircleButton: NSButton {
 	}
 }
 
-@objc open class DSFFinderColorGridView: NSGridView
+private extension NSColor
 {
+	func darkerColor() -> NSColor
+	{
+		guard let convertedColor = self.usingColorSpace(.genericRGB) else
+		{
+			return self
+		}
+		var hue: CGFloat = 0
+		var saturation: CGFloat = 0
+		var brightness: CGFloat = 0
+		var alpha: CGFloat = 0
+		convertedColor.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
+		return NSColor(calibratedHue: hue, saturation: saturation, brightness: brightness * 0.75, alpha: alpha)
+	}
+
+	func saturatedColor() -> NSColor
+	{
+		guard let convertedColor = self.usingColorSpace(.genericRGB) else
+		{
+			return self
+		}
+
+		var hue: CGFloat = 0
+		var saturation: CGFloat = 0
+		var brightness: CGFloat = 0
+		var alpha: CGFloat = 0
+		convertedColor.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
+		return NSColor(calibratedHue: hue, saturation: saturation * 1.2, brightness: brightness, alpha: alpha)
+	}
+}
+
+/// Delegate protocol for users of the DSFFinderColorGridView
+protocol DSFFinderColorGridViewProtocol
+{
+	/// Called when the selection changes
+	func selectionChanged(colorIndexes: Set<DSFFinderLabels.ColorIndex>)
+}
+
+/// A view class for displaying and selecting finder colors
+open class DSFFinderColorGridView: NSGridView
+{
+	/// The Finder's colors
 	static let FinderColors = DSFFinderLabels.FinderColors.colors
 
 	private var colorButtons = [DSFFinderColorCircleButton]()
 
+	/// Delegate for notifying back when selections change
+	var selectionDelegate: DSFFinderColorGridViewProtocol?
+
+	/// The colors currently selected in the control
 	public var selectedColors: [DSFFinderLabels.ColorIndex] {
 		return self.colorButtons
 			.filter({ $0.state == .on })
@@ -107,51 +152,30 @@ class DSFFinderColorCircleButton: NSButton {
 		self.addRow(with: self.colorButtons)
 	}
 
+	/// Unselect all of the colors in the control
 	public func reset()
 	{
 		self.setSelected(colors: [])
 	}
 
+
+	/// Set the colors to be selected within the control
+	///
+	/// - Parameter colors: The array of colors to set
 	public func setSelected(colors: [DSFFinderLabels.ColorIndex]) {
 		self.colorButtons.forEach { $0.state = .off }
 		colors.forEach { self.colorButtons[$0.rawValue].state = .on }
 	}
 
-	@objc func selectedButton(_ sender: DSFFinderColorCircleButton)
+	@objc private func selectedButton(_ sender: DSFFinderColorCircleButton)
 	{
 		if sender.tag == DSFFinderLabels.ColorIndex.none.rawValue
 		{
 			self.reset()
 		}
-	}
 
-	func darkerColor(_ color: NSColor) -> NSColor
-	{
-		guard let convertedColor = color.usingColorSpace(.genericRGB) else
-		{
-			return color
-		}
-		var hue: CGFloat = 0
-		var saturation: CGFloat = 0
-		var brightness: CGFloat = 0
-		var alpha: CGFloat = 0
-		convertedColor.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
-		return NSColor(calibratedHue: hue, saturation: saturation, brightness: brightness * 0.75, alpha: alpha)
-	}
-
-	func saturatedColor(_ color: NSColor) -> NSColor
-	{
-		guard let convertedColor = color.usingColorSpace(.genericRGB) else
-		{
-			return color
-		}
-
-		var hue: CGFloat = 0
-		var saturation: CGFloat = 0
-		var brightness: CGFloat = 0
-		var alpha: CGFloat = 0
-		convertedColor.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
-		return NSColor(calibratedHue: hue, saturation: saturation * 1.2, brightness: brightness, alpha: alpha)
+		// Tell our delegate when the change occurs
+		self.selectionDelegate?.selectionChanged(colorIndexes: Set(self.selectedColors))
 	}
 
 	private func finderColorButtons() -> [DSFFinderColorCircleButton]
@@ -195,8 +219,8 @@ class DSFFinderColorCircleButton: NSButton {
 				itemColor = NSColor.systemOrange
 			}
 
-			button.lightColor = self.saturatedColor(itemColor!)
-			button.darkColor = itemColor! //self.darkerColor(itemColor!)
+			button.lightColor = itemColor!.saturatedColor()
+			button.darkColor = itemColor!
 			button.tag = color.index.rawValue
 			button.setAccessibilityLabel(color.label)
 

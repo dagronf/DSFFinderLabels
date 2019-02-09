@@ -18,7 +18,7 @@
 		2332CDC7220D81AE00D6ABE4 /* DSFFinderLabelsTests_objc.m in Sources */ = {isa = PBXBuildFile; fileRef = 2332CDC6220D81AE00D6ABE4 /* DSFFinderLabelsTests_objc.m */; };
 		2332CDC9220D81AE00D6ABE4 /* DSFFinderLabels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2332CD8B220D420B00D6ABE4 /* DSFFinderLabels.framework */; };
 		234A4037220E4CD900E84403 /* DSFFinderLabels+objc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234A4036220E4CD900E84403 /* DSFFinderLabels+objc.swift */; };
-		234A4038220E7BA500E84403 /* DSFFinderColorCircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2332CDBB220D625F00D6ABE4 /* DSFFinderColorCircleButton.swift */; };
+		234A4038220E7BA500E84403 /* DSFFinderColorGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2332CDBB220D625F00D6ABE4 /* DSFFinderColorGridView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +52,7 @@
 		2332CDB2220D428E00D6ABE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		2332CDB4220D428E00D6ABE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2332CDB5220D428E00D6ABE4 /* DSFFinderLabelsDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DSFFinderLabelsDemo.entitlements; sourceTree = "<group>"; };
-		2332CDBB220D625F00D6ABE4 /* DSFFinderColorCircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSFFinderColorCircleButton.swift; sourceTree = "<group>"; };
+		2332CDBB220D625F00D6ABE4 /* DSFFinderColorGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSFFinderColorGridView.swift; sourceTree = "<group>"; };
 		2332CDBD220D6D9700D6ABE4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		2332CDBE220D6D9700D6ABE4 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		2332CDC4220D81AE00D6ABE4 /* DSFFinderLabelsTests_objc.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DSFFinderLabelsTests_objc.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,7 +128,7 @@
 				2332CD8F220D420B00D6ABE4 /* Info.plist */,
 				2332CDA5220D422100D6ABE4 /* DSFFinderLabels.swift */,
 				234A4036220E4CD900E84403 /* DSFFinderLabels+objc.swift */,
-				2332CDBB220D625F00D6ABE4 /* DSFFinderColorCircleButton.swift */,
+				2332CDBB220D625F00D6ABE4 /* DSFFinderColorGridView.swift */,
 			);
 			path = DSFFinderLabels;
 			sourceTree = "<group>";
@@ -182,6 +182,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
+
+/* Begin PBXLegacyTarget section */
+		234A4039220E7D5B00E84403 /* Generate Documentation */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(ACTION)";
+			buildConfigurationList = 234A403A220E7D5B00E84403 /* Build configuration list for PBXLegacyTarget "Generate Documentation" */;
+			buildPhases = (
+			);
+			buildToolPath = jazzy;
+			dependencies = (
+			);
+			name = "Generate Documentation";
+			passBuildSettingsInEnvironment = 1;
+			productName = "Generate Documentation";
+		};
+/* End PBXLegacyTarget section */
 
 /* Begin PBXNativeTarget section */
 		2332CD8A220D420B00D6ABE4 /* DSFFinderLabels */ = {
@@ -283,6 +299,9 @@
 					2332CDC3220D81AE00D6ABE4 = {
 						CreatedOnToolsVersion = 10.1;
 					};
+					234A4039220E7D5B00E84403 = {
+						CreatedOnToolsVersion = 10.1;
+					};
 				};
 			};
 			buildConfigurationList = 2332CD85220D420B00D6ABE4 /* Build configuration list for PBXProject "DSFFinderLabels" */;
@@ -302,6 +321,7 @@
 				2332CD93220D420B00D6ABE4 /* DSFFinderLabelsTests */,
 				2332CDAA220D428D00D6ABE4 /* DSFFinderLabelsDemo */,
 				2332CDC3220D81AE00D6ABE4 /* DSFFinderLabelsTests_objc */,
+				234A4039220E7D5B00E84403 /* Generate Documentation */,
 			);
 		};
 /* End PBXProject section */
@@ -345,7 +365,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				234A4037220E4CD900E84403 /* DSFFinderLabels+objc.swift in Sources */,
-				234A4038220E7BA500E84403 /* DSFFinderColorCircleButton.swift in Sources */,
+				234A4038220E7BA500E84403 /* DSFFinderColorGridView.swift in Sources */,
 				2332CDA6220D422100D6ABE4 /* DSFFinderLabels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -687,6 +707,33 @@
 			};
 			name = Release;
 		};
+		234A403B220E7D5B00E84403 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEBUGGING_SYMBOLS = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 3L6RK3LGGW;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		234A403C220E7D5B00E84403 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 3L6RK3LGGW;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -731,6 +778,15 @@
 			buildConfigurations = (
 				2332CDCD220D81AE00D6ABE4 /* Debug */,
 				2332CDCE220D81AE00D6ABE4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		234A403A220E7D5B00E84403 /* Build configuration list for PBXLegacyTarget "Generate Documentation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				234A403B220E7D5B00E84403 /* Debug */,
+				234A403C220E7D5B00E84403 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

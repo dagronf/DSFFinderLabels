@@ -32,6 +32,8 @@ import Cocoa
 
 @objc open class DSFFinderLabels: NSObject {
 
+	// MARK: Definitions
+
 	/// Standard Finder color indexes
 	@objc(DSFFinderLabelsColorIndex) public enum ColorIndex: Int {
 		case none = 0
@@ -46,19 +48,23 @@ import Cocoa
 
 	/// Returns an array of standard finder color definitions
 	@objc public static let FinderColors: ColorDefinitions = {
-		var clrs: [ColorDefinition] = []
+		var clrs: [ColorDefinitions.Definition] = []
 		let vals = zip(NSWorkspace.shared.fileLabels, NSWorkspace.shared.fileLabelColors)
 			.map { (label: $0, color: $1) }
 
 		for val in vals.enumerated() {
 			if let index = ColorIndex(rawValue: val.0) {
-				clrs.append(ColorDefinition(index: index, label: val.1.label, color: val.1.color))
+				clrs.append(ColorDefinitions.Definition(index: index, label: val.1.label, color: val.1.color))
 			}
 		}
 		return ColorDefinitions(colors: clrs)
 	}()
 
+	// MARK: Settable members
+
+	/// The currently defined tags
 	public var tags = Set<String>()
+	/// The currently defined color indexes
 	public var colors = Set<DSFFinderLabels.ColorIndex>()
 
 	// MARK: Initializers
@@ -82,6 +88,9 @@ extension DSFFinderLabels {
 		self.tags.removeAll()
 	}
 
+	/// Replace the current values with the labels for the specified URL
+	///
+	/// - Parameter fileURL: The URL to load the new values from
 	public func reset(with fileURL: URL) {
 		// Clear out all the stored values
 		self.clear()
@@ -101,10 +110,18 @@ extension DSFFinderLabels {
 		}
 	}
 
+	/// Is the specified color index set?
+	///
+	/// - Parameter colorIndex: the color index to check
+	/// - Returns: true if the color exists, false otherwise
 	@objc public func hasColorIndex(_ colorIndex: ColorIndex) -> Bool {
 		return self.colors.firstIndex(of: colorIndex) == nil ? false : true
 	}
 
+	/// Is the specified tag set?
+	///
+	/// - Parameter tag: The tag to check
+	/// - Returns: true if the tag exists, false otherwise
 	@objc public func hasTag(_ tag: String) -> Bool {
 		return self.tags.firstIndex(of: tag) == nil ? false : true
 	}
@@ -137,29 +154,32 @@ extension DSFFinderLabels {
 
 extension DSFFinderLabels {
 	/// Returns the color definition for the specified color index
-	@objc public func colorDefinition(for index: ColorIndex) -> ColorDefinition? {
+	@objc public func colorDefinition(for index: ColorIndex) -> ColorDefinitions.Definition? {
 		return DSFFinderLabels.FinderColors.color(for: index)
 	}
 
-	/// Representation of a finder 'color' label
-	@objc(DSFFinderLabelColorDefinition) open class ColorDefinition: NSObject {
-		public let index: ColorIndex
-		public let label: String
-		public let color: NSColor
-		fileprivate init(index: ColorIndex, label: String, color: NSColor) {
-			self.index = index
-			self.label = label
-			self.color = color
-		}
-	}
-
 	@objc(DSFFinderLabelColorDefinitions) open class ColorDefinitions: NSObject {
-		public let colors: [ColorDefinition]
-		fileprivate init(colors: [ColorDefinition]) {
+		/// Representation of a finder 'color' label
+		@objc(DSFFinderLabelColorDefinition) open class Definition: NSObject {
+			/// The Finder index for the specific color
+			public let index: ColorIndex
+			/// The Finder label for the color
+			public let label: String
+			/// The Finder color specified for the label
+			public let color: NSColor
+			fileprivate init(index: ColorIndex, label: String, color: NSColor) {
+				self.index = index
+				self.label = label
+				self.color = color
+			}
+		}
+
+		public let colors: [ColorDefinitions.Definition]
+		fileprivate init(colors: [ColorDefinitions.Definition]) {
 			self.colors = colors
 		}
 
-		public func color(for index: ColorIndex) -> ColorDefinition? {
+		public func color(for index: ColorIndex) -> ColorDefinitions.Definition? {
 			return self.colors.first(where: { $0.index == index })
 		}
 	}
@@ -168,7 +188,6 @@ extension DSFFinderLabels {
 // MARK: - URL Extension
 
 public extension URL {
-
 	/// Returns the finder labels for the current URL
 	public func finderLabels() -> DSFFinderLabels {
 		return DSFFinderLabels(fileURL: self)
@@ -179,4 +198,3 @@ public extension URL {
 		try finderLabels.update(url: self)
 	}
 }
-

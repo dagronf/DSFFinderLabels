@@ -37,18 +37,27 @@ import Cocoa
 
 	// MARK: Tag related
 
+	/// Add the specified tag to the set of tags
 	@objc func addTag(tag: String) {
 		self.tags.insert(tag)
 	}
+
+	/// Remove the specified tag from the set of tags
 	@objc func removeTag(tag: String) {
 		self.tags.remove(tag)
 	}
+
+	/// Add the specified tags to the set of tags
 	@objc func addTags(tags: Set<String>) {
 		self.tags.formUnion(tags)
 	}
+
+	/// Retrieve the set of tags
 	@objc func getTags() -> Set<String> {
 		return Set(self.tags)
 	}
+
+	/// Set the tags to the specified set of tags
 	@objc func setTags(tags: Set<String>) {
 		self.tags = Set(tags)
 	}
@@ -67,23 +76,39 @@ import Cocoa
 		return result
 	}
 
+	/// Add the specified color index to the set of color indexes
 	@objc func addColor(index: ColorIndex) {
 		self.colors.insert(index)
 	}
+	/// Add the specified color indexes to the set of color indexes
 	@objc func addColors(colorValues: Set<NSNumber>) throws {
 		let result = try self.convert(from: colorValues)
 		self.colors.formUnion(result)
 	}
+	/// Remove the specified color index from the set of color indexes
 	@objc func removeColor(index: ColorIndex) {
 		self.colors.remove(index)
 	}
+
+	/// Remove the specified color indexes (as NSNumbers) from the set of color indexes
+	///
+	/// - Parameter colorValues: the color indexes to set
+	/// - Throws: If the colorValues set contains an invalid color index
 	@objc func removeColorValues(colorValues: Set<NSNumber>) throws {
 		let result = try self.convert(from: colorValues)
 		self.colors.subtract(result)
 	}
+
+	/// Returns the set of color indexes as a set of NSNumber
 	@objc func getColorValues() -> Set<NSNumber> {
 		return Set(self.colors.map { NSNumber.init(value: $0.rawValue) })
 	}
+
+
+	/// Sets the current color indexes (objc)
+	///
+	/// - Parameter colorValues: The color indexes to set
+	/// - Throws: If the set contains an invalid color index value
 	@objc func setColorsValues(colorValues: Set<NSNumber>) throws {
 		self.colors = try self.convert(from: colorValues)
 	}
