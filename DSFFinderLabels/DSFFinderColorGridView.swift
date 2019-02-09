@@ -85,7 +85,7 @@ class DSFFinderColorCircleButton: NSButton {
 
 private extension NSColor
 {
-	func darkerColor() -> NSColor
+	func lighter(by: CGFloat) -> NSColor
 	{
 		guard let convertedColor = self.usingColorSpace(.genericRGB) else
 		{
@@ -96,7 +96,7 @@ private extension NSColor
 		var brightness: CGFloat = 0
 		var alpha: CGFloat = 0
 		convertedColor.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
-		return NSColor(calibratedHue: hue, saturation: saturation, brightness: brightness * 0.75, alpha: alpha)
+		return NSColor(calibratedHue: hue, saturation: saturation * by, brightness: brightness, alpha: alpha)
 	}
 
 	func saturatedColor() -> NSColor
@@ -116,7 +116,7 @@ private extension NSColor
 }
 
 /// Delegate protocol for users of the DSFFinderColorGridView
-protocol DSFFinderColorGridViewProtocol
+public protocol DSFFinderColorGridViewProtocol
 {
 	/// Called when the selection changes
 	func selectionChanged(colorIndexes: Set<DSFFinderLabels.ColorIndex>)
@@ -126,12 +126,12 @@ protocol DSFFinderColorGridViewProtocol
 open class DSFFinderColorGridView: NSGridView
 {
 	/// The Finder's colors
-	static let FinderColors = DSFFinderLabels.FinderColors.colors
+	private static let FinderColors = DSFFinderLabels.FinderColors.colors
 
 	private var colorButtons = [DSFFinderColorCircleButton]()
 
 	/// Delegate for notifying back when selections change
-	var selectionDelegate: DSFFinderColorGridViewProtocol?
+	public var selectionDelegate: DSFFinderColorGridViewProtocol?
 
 	/// The colors currently selected in the control
 	public var selectedColors: [DSFFinderLabels.ColorIndex] {
@@ -198,29 +198,8 @@ open class DSFFinderColorGridView: NSGridView
 								   toItem: nil, attribute: .notAnAttribute,
 								   multiplier: 1, constant: 24))
 
-			var itemColor: NSColor?
-			switch color.index
-			{
-			case .none:
-				itemColor = NSColor.clear
-			case .grey:
-				itemColor = NSColor.systemGray
-			case .green:
-				itemColor = NSColor.systemGreen
-			case .purple:
-				itemColor = NSColor.systemPurple
-			case .blue:
-				itemColor = NSColor.systemBlue
-			case .yellow:
-				itemColor = NSColor.systemYellow
-			case .red:
-				itemColor = NSColor.systemRed
-			case .orange:
-				itemColor = NSColor.systemOrange
-			}
-
-			button.lightColor = itemColor!.saturatedColor()
-			button.darkColor = itemColor!
+			button.lightColor = color.color.lighter(by: 0.75)
+			button.darkColor = color.color
 			button.tag = color.index.rawValue
 			button.setAccessibilityLabel(color.label)
 			button.toolTip = color.label

@@ -54,7 +54,8 @@ import Cocoa
 
 		for val in vals.enumerated() {
 			if let index = ColorIndex(rawValue: val.0) {
-				clrs.append(ColorDefinitions.Definition(index: index, label: val.1.label, color: val.1.color))
+				let customColor = ColorDefinitions.CustomColorForIndex(index)
+				clrs.append(ColorDefinitions.Definition(index: index, label: val.1.label, color: customColor, finderColor: val.1.color))
 			}
 		}
 		return ColorDefinitions(colors: clrs)
@@ -81,9 +82,9 @@ import Cocoa
 
 // MARK: Reset and load
 
-extension DSFFinderLabels {
+@objc extension DSFFinderLabels {
 	/// Clear all of the tags and colors
-	@objc public func clear() {
+	public func clear() {
 		self.colors.removeAll()
 		self.tags.removeAll()
 	}
@@ -114,7 +115,7 @@ extension DSFFinderLabels {
 	///
 	/// - Parameter colorIndex: the color index to check
 	/// - Returns: true if the color exists, false otherwise
-	@objc public func hasColorIndex(_ colorIndex: ColorIndex) -> Bool {
+	public func hasColorIndex(_ colorIndex: ColorIndex) -> Bool {
 		return self.colors.firstIndex(of: colorIndex) == nil ? false : true
 	}
 
@@ -122,7 +123,7 @@ extension DSFFinderLabels {
 	///
 	/// - Parameter tag: The tag to check
 	/// - Returns: true if the tag exists, false otherwise
-	@objc public func hasTag(_ tag: String) -> Bool {
+	public func hasTag(_ tag: String) -> Bool {
 		return self.tags.firstIndex(of: tag) == nil ? false : true
 	}
 }
@@ -153,33 +154,69 @@ extension DSFFinderLabels {
 // MARK: - Color Definition Helpers
 
 extension DSFFinderLabels {
-	/// Returns the color definition for the specified color index
-	@objc public func colorDefinition(for index: ColorIndex) -> ColorDefinitions.Definition? {
-		return DSFFinderLabels.FinderColors.color(for: index)
-	}
 
+	/// An object that contains all of the Finder color definitions
 	@objc(DSFFinderLabelColorDefinitions) open class ColorDefinitions: NSObject {
 		/// Representation of a finder 'color' label
 		@objc(DSFFinderLabelColorDefinition) open class Definition: NSObject {
 			/// The Finder index for the specific color
 			public let index: ColorIndex
-			/// The Finder label for the color
+			/// The Finder label (title) for the color
 			public let label: String
-			/// The Finder color specified for the label
+			/// The Finder color specified for the label.
+			/// This is a custom color defined to mostly match what is show in the finder
 			public let color: NSColor
-			fileprivate init(index: ColorIndex, label: String, color: NSColor) {
+			/// The color as reported by the finder.
+			/// This color is quite muted compared with what is shown in the Finder!
+			public let finderColor: NSColor
+
+			fileprivate init(index: ColorIndex, label: String, color: NSColor, finderColor: NSColor) {
 				self.index = index
 				self.label = label
 				self.color = color
+				self.finderColor = color
 			}
 		}
 
+		/// Returns a custom color that represents the color index.
+		///
+		/// This is used because the colors that are returned by NSWorkspace are very muted compared with
+		/// what is shown in the Finder's UI.
+		///
+		/// - Parameter colorIndex: The color index
+		/// - Returns: The custom color for the index
+		fileprivate static func CustomColorForIndex(_ colorIndex: ColorIndex) -> NSColor
+		{
+			switch colorIndex
+			{
+			case .none:
+				return NSColor.clear
+			case .grey:
+				return NSColor.systemGray
+			case .green:
+				return NSColor.systemGreen
+			case .purple:
+				return NSColor.systemPurple
+			case .blue:
+				return NSColor.systemBlue
+			case .yellow:
+				return NSColor.systemYellow
+			case .red:
+				return NSColor.systemRed
+			case .orange:
+				return NSColor.systemOrange
+			}
+		}
+
+		/// The finder color definitions
 		public let colors: [ColorDefinitions.Definition]
+
 		fileprivate init(colors: [ColorDefinitions.Definition]) {
 			self.colors = colors
 		}
 
-		public func color(for index: ColorIndex) -> ColorDefinitions.Definition? {
+		/// Returns the color definition for the specified color index
+		@objc public func color(for index: ColorIndex) -> ColorDefinitions.Definition? {
 			return self.colors.first(where: { $0.index == index })
 		}
 	}
