@@ -223,6 +223,7 @@ open class DSFFinderColorGridView: NSGridView
 			button.darkColor = itemColor!
 			button.tag = color.index.rawValue
 			button.setAccessibilityLabel(color.label)
+			button.toolTip = color.label
 
 			button.target = self
 			button.action = #selector(DSFFinderColorGridView.selectedButton(_:))
