@@ -14,14 +14,7 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="DSFFinderLabelsDemo" customModuleProvider="target">
             <connections>
-                <outlet property="color0" destination="Ogj-DL-f5f" id="eoS-83-h0j"/>
-                <outlet property="color1" destination="XUc-Pm-4yf" id="bSZ-mN-uSF"/>
-                <outlet property="color2" destination="MoK-uy-O7K" id="haS-QB-85w"/>
-                <outlet property="color3" destination="24b-ry-6vJ" id="kom-LU-LNV"/>
-                <outlet property="color4" destination="c8f-nX-SPr" id="YDC-cP-z2M"/>
-                <outlet property="color5" destination="lcp-54-WKa" id="mM5-OT-4S2"/>
-                <outlet property="color6" destination="w5a-34-hWn" id="bDm-dE-Quc"/>
-                <outlet property="color7" destination="FBQ-XF-mJX" id="f4h-Rg-kl1"/>
+                <outlet property="finderColorButtons" destination="kQv-8B-MW9" id="MAR-VO-sR1"/>
                 <outlet property="finderTags" destination="75l-GE-dxv" id="tAY-0K-t35"/>
                 <outlet property="selectedPath" destination="2nU-M8-aD5" id="yrN-Rj-Vcw"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
@@ -722,136 +715,8 @@
                             <rect key="frame" x="3" y="3" width="440" height="207"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <gridView xPlacement="leading" yPlacement="bottom" rowAlignment="none" columnSpacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="2m8-ce-UF8">
-                                    <rect key="frame" x="20" y="160" width="206" height="39"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="39" id="R1Y-G5-qoq"/>
-                                    </constraints>
-                                    <rows>
-                                        <gridRow id="WeK-DZ-MYQ"/>
-                                    </rows>
-                                    <columns>
-                                        <gridColumn id="88a-MR-tqf"/>
-                                        <gridColumn id="e8k-7F-KH8"/>
-                                        <gridColumn id="CFW-ep-caX"/>
-                                        <gridColumn id="3gl-4u-whc"/>
-                                        <gridColumn id="fQN-rx-Dzu"/>
-                                        <gridColumn id="Dmh-Ld-k1Y"/>
-                                        <gridColumn id="82c-XF-a1c"/>
-                                        <gridColumn id="bgs-tr-aRg"/>
-                                    </columns>
-                                    <gridCells>
-                                        <gridCell row="WeK-DZ-MYQ" column="88a-MR-tqf" id="fUz-bT-4Dc">
-                                            <button key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ogj-DL-f5f" customClass="CircleColorButton" customModule="DSFFinderLabelsDemo" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="24" id="akh-KL-DOU"/>
-                                                    <constraint firstAttribute="height" constant="24" id="yaU-SX-Imp"/>
-                                                </constraints>
-                                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" alignment="center" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="A4S-8S-ItX">
-                                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
-                                                    <font key="font" metaFont="system"/>
-                                                </buttonCell>
-                                                <connections>
-                                                    <action selector="reset:" target="Voe-Tx-rLC" id="KYz-FZ-i4k"/>
-                                                </connections>
-                                            </button>
-                                        </gridCell>
-                                        <gridCell row="WeK-DZ-MYQ" column="e8k-7F-KH8" id="l7M-ws-gU3">
-                                            <button key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XUc-Pm-4yf" customClass="CircleColorButton" customModule="DSFFinderLabelsDemo" customModuleProvider="target">
-                                                <rect key="frame" x="26" y="0.0" width="24" height="24"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="24" id="1Sn-0v-WzS"/>
-                                                    <constraint firstAttribute="height" constant="24" id="kbi-gU-5qF"/>
-                                                </constraints>
-                                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" alignment="center" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="SIh-DF-wmA">
-                                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
-                                                    <font key="font" metaFont="system"/>
-                                                </buttonCell>
-                                            </button>
-                                        </gridCell>
-                                        <gridCell row="WeK-DZ-MYQ" column="CFW-ep-caX" id="C5m-gx-cLy">
-                                            <button key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="MoK-uy-O7K" customClass="CircleColorButton" customModule="DSFFinderLabelsDemo" customModuleProvider="target">
-                                                <rect key="frame" x="52" y="0.0" width="24" height="24"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="24" id="SJa-HP-KlE"/>
-                                                    <constraint firstAttribute="height" constant="24" id="uwn-sL-49U"/>
-                                                </constraints>
-                                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" alignment="center" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="Tyu-Ye-bHo">
-                                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
-                                                    <font key="font" metaFont="system"/>
-                                                </buttonCell>
-                                            </button>
-                                        </gridCell>
-                                        <gridCell row="WeK-DZ-MYQ" column="3gl-4u-whc" id="sXd-OU-h5N">
-                                            <button key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="24b-ry-6vJ" customClass="CircleColorButton" customModule="DSFFinderLabelsDemo" customModuleProvider="target">
-                                                <rect key="frame" x="78" y="0.0" width="24" height="24"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="24" id="7aB-Ul-wRa"/>
-                                                    <constraint firstAttribute="width" constant="24" id="bmI-Jl-abt"/>
-                                                </constraints>
-                                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" alignment="center" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="k9s-bg-Zk9">
-                                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
-                                                    <font key="font" metaFont="system"/>
-                                                </buttonCell>
-                                            </button>
-                                        </gridCell>
-                                        <gridCell row="WeK-DZ-MYQ" column="fQN-rx-Dzu" id="oVC-eI-OeU">
-                                            <button key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="c8f-nX-SPr" customClass="CircleColorButton" customModule="DSFFinderLabelsDemo" customModuleProvider="target">
-                                                <rect key="frame" x="104" y="0.0" width="24" height="24"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="24" id="M1c-I5-iFN"/>
-                                                    <constraint firstAttribute="height" constant="24" id="e7e-ZV-POj"/>
-                                                </constraints>
-                                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" alignment="center" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="jAW-iX-Wfr">
-                                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
-                                                    <font key="font" metaFont="system"/>
-                                                </buttonCell>
-                                            </button>
-                                        </gridCell>
-                                        <gridCell row="WeK-DZ-MYQ" column="Dmh-Ld-k1Y" id="AZj-4D-kld">
-                                            <button key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lcp-54-WKa" customClass="CircleColorButton" customModule="DSFFinderLabelsDemo" customModuleProvider="target">
-                                                <rect key="frame" x="130" y="0.0" width="24" height="24"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="24" id="nVx-aG-gzU"/>
-                                                    <constraint firstAttribute="height" constant="24" id="wvQ-ap-h3K"/>
-                                                </constraints>
-                                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" alignment="center" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="Caj-YV-cVb">
-                                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
-                                                    <font key="font" metaFont="system"/>
-                                                </buttonCell>
-                                            </button>
-                                        </gridCell>
-                                        <gridCell row="WeK-DZ-MYQ" column="82c-XF-a1c" id="osr-TJ-SdR">
-                                            <button key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="w5a-34-hWn" customClass="CircleColorButton" customModule="DSFFinderLabelsDemo" customModuleProvider="target">
-                                                <rect key="frame" x="156" y="0.0" width="24" height="24"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="24" id="6z5-rW-WcF"/>
-                                                    <constraint firstAttribute="width" constant="24" id="pbd-ey-WlN"/>
-                                                </constraints>
-                                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" alignment="center" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="KfX-nE-CqZ">
-                                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
-                                                    <font key="font" metaFont="system"/>
-                                                </buttonCell>
-                                            </button>
-                                        </gridCell>
-                                        <gridCell row="WeK-DZ-MYQ" column="bgs-tr-aRg" id="ghj-SW-5WB">
-                                            <button key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FBQ-XF-mJX" customClass="CircleColorButton" customModule="DSFFinderLabelsDemo" customModuleProvider="target">
-                                                <rect key="frame" x="182" y="0.0" width="24" height="24"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="24" id="0OL-0A-By0"/>
-                                                    <constraint firstAttribute="width" constant="24" id="yHe-kM-aYJ"/>
-                                                </constraints>
-                                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" alignment="center" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="AIF-xb-uS4">
-                                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
-                                                    <font key="font" metaFont="system"/>
-                                                </buttonCell>
-                                            </button>
-                                        </gridCell>
-                                    </gridCells>
-                                </gridView>
                                 <tokenField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="75l-GE-dxv">
-                                    <rect key="frame" x="20" y="73" width="400" height="79"/>
+                                    <rect key="frame" x="20" y="61" width="400" height="79"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="79" id="tM5-QI-ooO"/>
                                     </constraints>
@@ -862,7 +727,7 @@
                                     </tokenFieldCell>
                                 </tokenField>
                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ley-47-Xws">
-                                    <rect key="frame" x="341" y="13" width="85" height="44"/>
+                                    <rect key="frame" x="341" y="13" width="85" height="32"/>
                                     <buttonCell key="cell" type="push" title="Update" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="gbt-46-fUe">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -871,17 +736,21 @@
                                         <action selector="update:" target="Voe-Tx-rLC" id="uch-YN-yzK"/>
                                     </connections>
                                 </button>
+                                <customView placeholderIntrinsicWidth="290" placeholderIntrinsicHeight="32" translatesAutoresizingMaskIntoConstraints="NO" id="kQv-8B-MW9" customClass="DSFFinderColorGridView" customModule="DSFFinderLabels">
+                                    <rect key="frame" x="20" y="155" width="290" height="32"/>
+                                </customView>
                             </subviews>
                             <constraints>
+                                <constraint firstItem="kQv-8B-MW9" firstAttribute="top" secondItem="WbA-2m-2WE" secondAttribute="top" constant="20" id="5dd-zU-h82"/>
                                 <constraint firstAttribute="trailing" secondItem="75l-GE-dxv" secondAttribute="trailing" constant="20" id="8zb-Yn-x5A"/>
-                                <constraint firstItem="75l-GE-dxv" firstAttribute="top" secondItem="2m8-ce-UF8" secondAttribute="bottom" constant="8" id="OAI-gb-9u1"/>
-                                <constraint firstItem="2m8-ce-UF8" firstAttribute="leading" secondItem="WbA-2m-2WE" secondAttribute="leading" constant="20" id="OXp-K8-AzZ"/>
+                                <constraint firstItem="kQv-8B-MW9" firstAttribute="leading" secondItem="WbA-2m-2WE" secondAttribute="leading" constant="20" id="LZA-At-am5"/>
                                 <constraint firstItem="75l-GE-dxv" firstAttribute="leading" secondItem="WbA-2m-2WE" secondAttribute="leading" constant="20" id="UON-RM-U8t"/>
                                 <constraint firstAttribute="trailing" secondItem="ley-47-Xws" secondAttribute="trailing" constant="20" id="bFo-qu-qHP"/>
-                                <constraint firstItem="2m8-ce-UF8" firstAttribute="top" secondItem="WbA-2m-2WE" secondAttribute="top" constant="8" id="bmF-Qs-ts1"/>
+                                <constraint firstItem="75l-GE-dxv" firstAttribute="top" secondItem="kQv-8B-MW9" secondAttribute="bottom" constant="15" id="hac-BC-D6E"/>
                                 <constraint firstAttribute="bottom" secondItem="ley-47-Xws" secondAttribute="bottom" constant="20" symbolic="YES" id="lyr-m2-dhn"/>
                                 <constraint firstItem="ley-47-Xws" firstAttribute="top" secondItem="75l-GE-dxv" secondAttribute="bottom" constant="20" id="sff-Nt-CK9"/>
-                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="2m8-ce-UF8" secondAttribute="trailing" constant="20" id="yi0-YZ-JGG"/>
+                                <constraint firstItem="kQv-8B-MW9" firstAttribute="leading" secondItem="75l-GE-dxv" secondAttribute="leading" id="tTc-QH-1AQ"/>
+                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="kQv-8B-MW9" secondAttribute="trailing" constant="20" symbolic="YES" id="yBB-Iv-Nm5"/>
                             </constraints>
                         </view>
                     </box>
