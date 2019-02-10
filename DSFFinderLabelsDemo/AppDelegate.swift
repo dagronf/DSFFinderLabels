@@ -18,7 +18,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 	@IBOutlet weak var finderColorButtons: DSFFinderColorGridView!
 
-	@IBOutlet weak var finderTags: NSTokenField!
+	@IBOutlet weak var finderTags: DSFFinderTagsField!
 
 	private var activeSearch: DSFFinderLabels.Search?
 
@@ -50,7 +50,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 		self.finderColorButtons.setSelected(colors: Array(labels.colors))
 
-		self.finderTags.objectValue = Array(labels.tags)
+		self.finderTags.finderTags = Array(labels.tags)
 	}
 
 	@IBAction func reset(_ sender: Any)
@@ -66,7 +66,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		updated.colors = Set(selected)
 
 		/// Set updated tags
-		let itemTags = (self.finderTags.objectValue as? [String]) ?? []
+		let itemTags = self.finderTags.finderTags
 		updated.tags = Set(itemTags)
 
 		self.activeSearch = updated.findAllMatching { results in

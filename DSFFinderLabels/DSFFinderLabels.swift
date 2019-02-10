@@ -76,6 +76,13 @@ import Cocoa
 		super.init()
 	}
 
+	public init(colors: [ColorIndex] = [], tags: [String] = []) {
+		super.init()
+
+		self.colors = Set(colors)
+		self.tags = Set(tags)
+	}
+
 	public init(fileURL: URL) {
 		super.init()
 		self.reset(with: fileURL)
@@ -235,5 +242,10 @@ public extension URL {
 	/// Set the labels defined by 'finderLabels' to the URL
 	public func setFinderLabels(_ finderLabels: DSFFinderLabels) throws {
 		try finderLabels.update(url: self)
+	}
+
+	public func setFinderLabels(colors: [DSFFinderLabels.ColorIndex] = [], tags: [String] = []) throws {
+		let labels = DSFFinderLabels(colors: colors, tags: tags)
+		try labels.update(url: self)
 	}
 }

@@ -126,4 +126,18 @@ import Cocoa
 	public func setFinderLabels(finderLabels: DSFFinderLabels) throws {
 		try finderLabels.update(url: self as URL)
 	}
+
+	public func setFinderLabels(colorValues: [NSNumber] = [], tags: [String] = []) throws {
+		var vals = [DSFFinderLabels.ColorIndex]()
+		for value in colorValues {
+			guard let val = DSFFinderLabels.ColorIndex.init(rawValue: value.intValue) else {
+				throw NSError(domain: "Bad index", code: -1, userInfo: nil)
+			}
+			vals.append(val)
+		}
+
+		let labels = DSFFinderLabels(colors: vals, tags: tags)
+		try labels.update(url: self as URL)
+	}
+
 }

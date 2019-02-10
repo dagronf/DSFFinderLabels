@@ -9,18 +9,14 @@
 import Cocoa
 
 class DSFFinderColorCircleButton: NSButton {
-
-	public var darkColor = NSColor.clear
-	{
-		didSet
-		{
+	public var darkColor = NSColor.clear {
+		didSet {
 			self.needsDisplay = true
 		}
 	}
-	public var lightColor = NSColor.clear
-	{
-		didSet
-		{
+
+	public var lightColor = NSColor.clear {
+		didSet {
 			self.needsDisplay = true
 		}
 	}
@@ -31,7 +27,7 @@ class DSFFinderColorCircleButton: NSButton {
 	}
 
 	static var Shadow: NSShadow = {
-		let shad = NSShadow.init()
+		let shad = NSShadow()
 		shad.shadowBlurRadius = 4
 		shad.shadowColor = NSColor.black.withAlphaComponent(0.7)
 		shad.shadowOffset = NSSize(width: 1, height: -1)
@@ -42,7 +38,6 @@ class DSFFinderColorCircleButton: NSButton {
 		super.draw(dirtyRect)
 
 		let inset: CGFloat = (self.state == .on) ? 3 : 5
-
 
 		let rect = NSRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
 		let insetRect = rect.insetBy(dx: inset, dy: inset)
@@ -67,12 +62,10 @@ class DSFFinderColorCircleButton: NSButton {
 
 		// Draw selection
 
-		if self.state == .on
-		{
+		if self.state == .on {
 			let circlePath = NSBezierPath(ovalIn: rect.insetBy(dx: 8, dy: 8))
 
-			if let gs = NSGraphicsContext.current
-			{
+			if let gs = NSGraphicsContext.current {
 				gs.saveGraphicsState()
 				DSFFinderColorCircleButton.Shadow.set()
 				NSColor.white.setFill()
@@ -83,12 +76,9 @@ class DSFFinderColorCircleButton: NSButton {
 	}
 }
 
-private extension NSColor
-{
-	func lighter(by: CGFloat) -> NSColor
-	{
-		guard let convertedColor = self.usingColorSpace(.genericRGB) else
-		{
+private extension NSColor {
+	func lighter(by: CGFloat) -> NSColor {
+		guard let convertedColor = self.usingColorSpace(.genericRGB) else {
 			return self
 		}
 		var hue: CGFloat = 0
@@ -99,10 +89,8 @@ private extension NSColor
 		return NSColor(calibratedHue: hue, saturation: saturation * by, brightness: brightness, alpha: alpha)
 	}
 
-	func saturatedColor() -> NSColor
-	{
-		guard let convertedColor = self.usingColorSpace(.genericRGB) else
-		{
+	func saturatedColor() -> NSColor {
+		guard let convertedColor = self.usingColorSpace(.genericRGB) else {
 			return self
 		}
 
@@ -116,15 +104,24 @@ private extension NSColor
 }
 
 /// Delegate protocol for users of the DSFFinderColorGridView
-public protocol DSFFinderColorGridViewProtocol
-{
+public protocol DSFFinderColorGridViewProtocol {
 	/// Called when the selection changes
 	func selectionChanged(colorIndexes: Set<DSFFinderLabels.ColorIndex>)
 }
 
+open class DSFFinderTagsField: NSTokenField {
+	public var finderTags: [String] {
+		get {
+			return self.objectValue as? [String] ?? []
+		}
+		set {
+			self.objectValue = newValue
+		}
+	}
+}
+
 /// A view class for displaying and selecting finder colors
-open class DSFFinderColorGridView: NSGridView
-{
+open class DSFFinderColorGridView: NSGridView {
 	/// The Finder's colors
 	private static let FinderColors = DSFFinderLabels.FinderColors.colors
 
@@ -147,7 +144,7 @@ open class DSFFinderColorGridView: NSGridView
 		self.columnSpacing = 0
 	}
 
-	required public init?(coder: NSCoder) {
+	public required init?(coder: NSCoder) {
 		super.init(coder: coder)
 		self.colorButtons = self.finderColorButtons()
 		self.addRow(with: self.colorButtons)
@@ -155,11 +152,9 @@ open class DSFFinderColorGridView: NSGridView
 	}
 
 	/// Unselect all of the colors in the control
-	public func reset()
-	{
+	public func reset() {
 		self.setSelected(colors: [])
 	}
-
 
 	/// Set the colors to be selected within the control
 	///
@@ -169,10 +164,8 @@ open class DSFFinderColorGridView: NSGridView
 		colors.forEach { self.colorButtons[$0.rawValue].state = .on }
 	}
 
-	@objc private func selectedButton(_ sender: DSFFinderColorCircleButton)
-	{
-		if sender.tag == DSFFinderLabels.ColorIndex.none.rawValue
-		{
+	@objc private func selectedButton(_ sender: DSFFinderColorCircleButton) {
+		if sender.tag == DSFFinderLabels.ColorIndex.none.rawValue {
 			self.reset()
 		}
 
@@ -180,8 +173,7 @@ open class DSFFinderColorGridView: NSGridView
 		self.selectionDelegate?.selectionChanged(colorIndexes: Set(self.selectedColors))
 	}
 
-	private func finderColorButtons() -> [DSFFinderColorCircleButton]
-	{
+	private func finderColorButtons() -> [DSFFinderColorCircleButton] {
 		var arr = [DSFFinderColorCircleButton]()
 		for color in DSFFinderColorGridView.FinderColors {
 			let button = DSFFinderColorCircleButton(frame: NSRect(x: 0, y: 0, width: 24, height: 24))
@@ -191,14 +183,14 @@ open class DSFFinderColorGridView: NSGridView
 			button.setButtonType(.onOff)
 			button.addConstraint(
 				NSLayoutConstraint(item: button, attribute: .width,
-								   relatedBy: .equal,
-								   toItem: nil, attribute: .notAnAttribute,
-								   multiplier: 1, constant: 24))
+				                   relatedBy: .equal,
+				                   toItem: nil, attribute: .notAnAttribute,
+				                   multiplier: 1, constant: 24))
 			button.addConstraint(
 				NSLayoutConstraint(item: button, attribute: .height,
-								   relatedBy: .equal,
-								   toItem: nil, attribute: .notAnAttribute,
-								   multiplier: 1, constant: 24))
+				                   relatedBy: .equal,
+				                   toItem: nil, attribute: .notAnAttribute,
+				                   multiplier: 1, constant: 24))
 
 			button.lightColor = color.color.lighter(by: 0.75)
 			button.darkColor = color.color

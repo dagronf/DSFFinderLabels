@@ -101,7 +101,7 @@ class DSFTaggerViewController: NSCollectionViewItem {
 
 	var taggerLabel: NSTextField?
 	var colorSelector: DSFFinderColorGridView?
-	var tagSelector: NSTokenField?
+	var tagSelector: DSFFinderTagsField?
 
 	var activeSearch: DSFFinderLabels.Search?
 
@@ -117,7 +117,7 @@ class DSFTaggerViewController: NSCollectionViewItem {
 		colorSelector.setContentHuggingPriority(.defaultLow, for: .vertical)
 		colorSelector.translatesAutoresizingMaskIntoConstraints = false
 
-		let tagSelector = NSTokenField()
+		let tagSelector = DSFFinderTagsField()
 		self.tagSelector = tagSelector
 		tagSelector.translatesAutoresizingMaskIntoConstraints = false
 
