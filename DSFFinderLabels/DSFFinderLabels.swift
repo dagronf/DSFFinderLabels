@@ -68,6 +68,8 @@ import Cocoa
 	/// The currently defined color indexes
 	public var colors = Set<DSFFinderLabels.ColorIndex>()
 
+	public var activeSearch: DSFFinderLabels.Search?
+
 	// MARK: Initializers
 
 	public override init() {

@@ -128,4 +128,27 @@ class DSFFinderLabelsTests: XCTestCase {
 		XCTAssertEqual(l3.colors, Set([DSFFinderLabels.ColorIndex.green, DSFFinderLabels.ColorIndex.orange]))
 		XCTAssertEqual(l3.tags, Set(["Work Related"]))
 	}
+
+//	func testFind() {
+//		guard let file1 = try? self.getDummyFile() else {
+//			fatalError("Could not create temporary files")
+//		}
+//
+//		let labels = DSFFinderLabels()
+//		labels.colors.insert(.green)
+//		labels.colors.insert(.orange)
+//		labels.tags.insert("Work Related")
+//
+//		guard let _ = try? file1.fileURL.setFinderLabels(labels) else {
+//			fatalError("Could not update temporary files")
+//		}
+//
+//		let expectation = XCTestExpectation()
+//		let search = DSFFinderLabels.Search.search(for: labels) { (urls) in
+//			XCTAssertTrue(urls.contains(file1.fileURL))
+//			expectation.fulfill()
+//		}
+//
+//		self.wait(for: [expectation], timeout: 5.0)
+//	}
 }

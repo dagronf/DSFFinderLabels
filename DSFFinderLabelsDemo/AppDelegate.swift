@@ -20,6 +20,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 	@IBOutlet weak var finderTags: NSTokenField!
 
+	private var activeSearch: DSFFinderLabels.Search?
+
+
 	func applicationDidFinishLaunching(_ aNotification: Notification) {
 		self.selectedPath.url = nil
 	}
@@ -53,6 +56,25 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	@IBAction func reset(_ sender: Any)
 	{
 		self.finderColorButtons.reset()
+	}
+
+	@IBAction func findMatching(_ sender: Any)
+	{
+		let updated = DSFFinderLabels()
+
+		let selected = self.finderColorButtons.selectedColors
+		updated.colors = Set(selected)
+
+		/// Set updated tags
+		let itemTags = (self.finderTags.objectValue as? [String]) ?? []
+		updated.tags = Set(itemTags)
+
+		self.activeSearch = updated.findAllMatching { results in
+			print(results)
+		}
+
+//		let urls = updated.findAllMatching()
+//		print(urls)
 	}
 
 	@IBAction func update(_ sender: Any)

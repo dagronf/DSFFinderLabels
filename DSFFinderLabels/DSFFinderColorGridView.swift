@@ -144,12 +144,14 @@ open class DSFFinderColorGridView: NSGridView
 		super.init(frame: frameRect)
 		self.colorButtons = self.finderColorButtons()
 		self.addRow(with: self.colorButtons)
+		self.columnSpacing = 0
 	}
 
 	required public init?(coder: NSCoder) {
 		super.init(coder: coder)
 		self.colorButtons = self.finderColorButtons()
 		self.addRow(with: self.colorButtons)
+		self.columnSpacing = 0
 	}
 
 	/// Unselect all of the colors in the control

@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11134" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
-        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11134"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -11,23 +10,16 @@
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
-        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="DSFFinderLabelsDemo" customModuleProvider="target">
-            <connections>
-                <outlet property="finderColorButtons" destination="kQv-8B-MW9" id="MAR-VO-sR1"/>
-                <outlet property="finderTags" destination="75l-GE-dxv" id="tAY-0K-t35"/>
-                <outlet property="selectedPath" destination="2nU-M8-aD5" id="yrN-Rj-Vcw"/>
-                <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
-            </connections>
-        </customObject>
+        <customObject id="-3" userLabel="Application" customClass="NSApplication"/>
+        <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModuleProvider="target"/>
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
         <menu title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
             <items>
-                <menuItem title="DSFFinderLabelsDemo" id="1Xt-HY-uBw">
+                <menuItem title="Finder Tagger" id="1Xt-HY-uBw">
                     <modifierMask key="keyEquivalentModifierMask"/>
-                    <menu key="submenu" title="DSFFinderLabelsDemo" systemMenu="apple" id="uQy-DD-JDr">
+                    <menu key="submenu" title="Finder Tagger" systemMenu="apple" id="uQy-DD-JDr">
                         <items>
-                            <menuItem title="About DSFFinderLabelsDemo" id="5kV-Vb-QxS">
+                            <menuItem title="About Finder Tagger" id="5kV-Vb-QxS">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="orderFrontStandardAboutPanel:" target="-1" id="Exp-CZ-Vem"/>
@@ -41,7 +33,7 @@
                                 <menu key="submenu" title="Services" systemMenu="services" id="hz9-B4-Xy5"/>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="4je-JR-u6R"/>
-                            <menuItem title="Hide DSFFinderLabelsDemo" keyEquivalent="h" id="Olw-nP-bQN">
+                            <menuItem title="Hide Finder Tagger" keyEquivalent="h" id="Olw-nP-bQN">
                                 <connections>
                                     <action selector="hide:" target="-1" id="PnN-Uc-m68"/>
                                 </connections>
@@ -59,7 +51,7 @@
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="kCx-OE-vgT"/>
-                            <menuItem title="Quit DSFFinderLabelsDemo" keyEquivalent="q" id="4sb-4s-VLi">
+                            <menuItem title="Quit Finder Tagger" keyEquivalent="q" id="4sb-4s-VLi">
                                 <connections>
                                     <action selector="terminate:" target="-1" id="Te7-pn-YzF"/>
                                 </connections>
@@ -124,7 +116,7 @@
                             </menuItem>
                             <menuItem title="Print…" keyEquivalent="p" id="aTl-1u-JFS">
                                 <connections>
-                                    <action selector="print:" target="-1" id="qaZ-4w-aoO"/>
+                                    <action selector="printDocument:" target="-1" id="qaZ-4w-aoO"/>
                                 </connections>
                             </menuItem>
                         </items>
@@ -672,7 +664,7 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="Help" systemMenu="help" id="F2S-fz-NVQ">
                         <items>
-                            <menuItem title="DSFFinderLabelsDemo Help" keyEquivalent="?" id="FKE-Sm-Kum">
+                            <menuItem title="Finder Tagger Help" keyEquivalent="?" id="FKE-Sm-Kum">
                                 <connections>
                                     <action selector="showHelp:" target="-1" id="y7X-2Q-9no"/>
                                 </connections>
@@ -681,105 +673,6 @@
                     </menu>
                 </menuItem>
             </items>
-            <point key="canvasLocation" x="168" y="191"/>
         </menu>
-        <window title="DSFFinderLabelsDemo" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
-            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="335" y="390" width="480" height="306"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
-            <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="480" height="306"/>
-                <autoresizingMask key="autoresizingMask"/>
-                <subviews>
-                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3WP-DZ-MlQ">
-                        <rect key="frame" x="14" y="254" width="70" height="32"/>
-                        <buttonCell key="cell" type="push" title="Load" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="7kC-s3-hdc">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="loadURL:" target="Voe-Tx-rLC" id="dfN-UL-jvj"/>
-                        </connections>
-                    </button>
-                    <pathControl verticalHuggingPriority="750" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2nU-M8-aD5">
-                        <rect key="frame" x="86" y="261" width="226" height="22"/>
-                        <pathCell key="cell" selectable="YES" editable="YES" alignment="left" id="aSc-Nw-ZQd">
-                            <font key="font" metaFont="system"/>
-                            <url key="url" string="file://localhost/Applications/"/>
-                        </pathCell>
-                    </pathControl>
-                    <box autoresizesSubviews="NO" borderType="line" title="Finder Colors and Tags" translatesAutoresizingMaskIntoConstraints="NO" id="AZW-Jm-E0X">
-                        <rect key="frame" x="17" y="16" width="446" height="225"/>
-                        <view key="contentView" id="WbA-2m-2WE">
-                            <rect key="frame" x="3" y="3" width="440" height="207"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            <subviews>
-                                <customView placeholderIntrinsicWidth="290" placeholderIntrinsicHeight="32" translatesAutoresizingMaskIntoConstraints="NO" id="kQv-8B-MW9" customClass="DSFFinderColorGridView" customModule="DSFFinderLabels">
-                                    <rect key="frame" x="20" y="155" width="290" height="32"/>
-                                </customView>
-                                <tokenField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="75l-GE-dxv">
-                                    <rect key="frame" x="20" y="61" width="400" height="79"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="79" id="tM5-QI-ooO"/>
-                                    </constraints>
-                                    <tokenFieldCell key="cell" selectable="YES" editable="YES" borderStyle="bezel" alignment="left" drawsBackground="YES" allowsEditingTextAttributes="YES" id="fNO-Hh-wdb">
-                                        <font key="font" metaFont="system"/>
-                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                    </tokenFieldCell>
-                                </tokenField>
-                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ley-47-Xws">
-                                    <rect key="frame" x="341" y="13" width="85" height="32"/>
-                                    <buttonCell key="cell" type="push" title="Update" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="gbt-46-fUe">
-                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                        <font key="font" metaFont="system"/>
-                                    </buttonCell>
-                                    <connections>
-                                        <action selector="update:" target="Voe-Tx-rLC" id="uch-YN-yzK"/>
-                                    </connections>
-                                </button>
-                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="KYP-HG-Ceg" userLabel="Find">
-                                    <rect key="frame" x="14" y="13" width="66" height="32"/>
-                                    <buttonCell key="cell" type="push" title="Find" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="SCs-Pe-eL8">
-                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                        <font key="font" metaFont="system"/>
-                                    </buttonCell>
-                                    <connections>
-                                        <action selector="findMatching:" target="Voe-Tx-rLC" id="ly9-gf-ZkZ"/>
-                                    </connections>
-                                </button>
-                            </subviews>
-                            <constraints>
-                                <constraint firstItem="kQv-8B-MW9" firstAttribute="top" secondItem="WbA-2m-2WE" secondAttribute="top" constant="20" id="5dd-zU-h82"/>
-                                <constraint firstAttribute="trailing" secondItem="75l-GE-dxv" secondAttribute="trailing" constant="20" id="8zb-Yn-x5A"/>
-                                <constraint firstItem="kQv-8B-MW9" firstAttribute="leading" secondItem="WbA-2m-2WE" secondAttribute="leading" constant="20" id="LZA-At-am5"/>
-                                <constraint firstItem="75l-GE-dxv" firstAttribute="leading" secondItem="WbA-2m-2WE" secondAttribute="leading" constant="20" id="UON-RM-U8t"/>
-                                <constraint firstItem="KYP-HG-Ceg" firstAttribute="centerY" secondItem="ley-47-Xws" secondAttribute="centerY" id="VGa-FF-Vwk"/>
-                                <constraint firstAttribute="trailing" secondItem="ley-47-Xws" secondAttribute="trailing" constant="20" id="bFo-qu-qHP"/>
-                                <constraint firstItem="75l-GE-dxv" firstAttribute="top" secondItem="kQv-8B-MW9" secondAttribute="bottom" constant="15" id="hac-BC-D6E"/>
-                                <constraint firstAttribute="bottom" secondItem="ley-47-Xws" secondAttribute="bottom" constant="20" symbolic="YES" id="lyr-m2-dhn"/>
-                                <constraint firstItem="KYP-HG-Ceg" firstAttribute="leading" secondItem="75l-GE-dxv" secondAttribute="leading" id="n4x-as-e0L"/>
-                                <constraint firstItem="ley-47-Xws" firstAttribute="top" secondItem="75l-GE-dxv" secondAttribute="bottom" constant="20" id="sff-Nt-CK9"/>
-                                <constraint firstItem="kQv-8B-MW9" firstAttribute="leading" secondItem="75l-GE-dxv" secondAttribute="leading" id="tTc-QH-1AQ"/>
-                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="kQv-8B-MW9" secondAttribute="trailing" constant="20" symbolic="YES" id="yBB-Iv-Nm5"/>
-                            </constraints>
-                        </view>
-                    </box>
-                </subviews>
-                <constraints>
-                    <constraint firstItem="3WP-DZ-MlQ" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" id="DZT-Ub-bbn"/>
-                    <constraint firstItem="3WP-DZ-MlQ" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="24" id="GMB-gX-TUt"/>
-                    <constraint firstItem="2nU-M8-aD5" firstAttribute="leading" secondItem="3WP-DZ-MlQ" secondAttribute="trailing" constant="8" id="ao5-aa-Yi2"/>
-                    <constraint firstItem="3WP-DZ-MlQ" firstAttribute="centerY" secondItem="2nU-M8-aD5" secondAttribute="centerY" id="j5z-ef-ojo"/>
-                    <constraint firstAttribute="trailing" secondItem="AZW-Jm-E0X" secondAttribute="trailing" constant="20" id="kUG-l2-qQE"/>
-                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="2nU-M8-aD5" secondAttribute="trailing" constant="20" symbolic="YES" id="oKU-Qj-7Bl"/>
-                    <constraint firstItem="AZW-Jm-E0X" firstAttribute="top" secondItem="3WP-DZ-MlQ" secondAttribute="bottom" constant="20" id="prh-uD-urZ"/>
-                    <constraint firstItem="AZW-Jm-E0X" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" id="sqw-V9-gmV"/>
-                    <constraint firstAttribute="bottom" secondItem="AZW-Jm-E0X" secondAttribute="bottom" constant="20" id="xm1-sN-N94"/>
-                </constraints>
-            </view>
-            <point key="canvasLocation" x="-370" y="36"/>
-        </window>
     </objects>
 </document>
