@@ -779,7 +779,7 @@
                     <constraint firstAttribute="bottom" secondItem="AZW-Jm-E0X" secondAttribute="bottom" constant="20" id="xm1-sN-N94"/>
                 </constraints>
             </view>
-            <point key="canvasLocation" x="-370" y="36"/>
+            <point key="canvasLocation" x="-506" y="171"/>
         </window>
     </objects>
 </document>

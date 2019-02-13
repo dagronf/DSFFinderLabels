@@ -9,16 +9,37 @@
 import Cocoa
 
 class DSFFinderColorCircleButton: NSButton {
-	public var darkColor = NSColor.clear {
+
+	private func isHighContrast() -> Bool {
+		return NSWorkspace.shared.accessibilityDisplayShouldIncreaseContrast
+	}
+
+	public var drawColor: NSColor? {
 		didSet {
 			self.needsDisplay = true
 		}
 	}
 
-	public var lightColor = NSColor.clear {
-		didSet {
-			self.needsDisplay = true
+	public var fillColor: NSColor {
+		return self.drawColor ?? NSColor.clear
+	}
+
+	public var strokeColor: NSColor {
+		if self.isHighContrast() {
+			return NSColor.textColor
 		}
+		if let color = self.drawColor {
+			return color.lighter(by: 1.75)
+		}
+		return NSColor.secondaryLabelColor
+	}
+
+	public var highlightedFillColor: NSColor {
+		return self.drawColor?.lighter(by: 0.5) ?? NSColor.clear
+	}
+
+	public var highlightedStrokeColor: NSColor {
+		return self.strokeColor.lighter(by: 0.75)
 	}
 
 	public override func drawFocusRingMask() {
@@ -43,34 +64,46 @@ class DSFFinderColorCircleButton: NSButton {
 		let insetRect = rect.insetBy(dx: inset, dy: inset)
 		let circlePath = NSBezierPath(ovalIn: insetRect)
 
-		var fillColor: NSColor
-		var strokeColor: NSColor
-		circlePath.fill()
+		var fillColor: NSColor?
+		var strokeColor: NSColor?
+
 		if self.isHighlighted {
-			strokeColor = self.darkColor
-			fillColor = self.lightColor
+			strokeColor = self.highlightedStrokeColor
+			fillColor = self.highlightedFillColor
 		} else {
-			strokeColor = self.lightColor
-			fillColor = self.darkColor
+			strokeColor = self.strokeColor
+			fillColor = self.fillColor
 		}
 
-		strokeColor.setStroke()
+		if let strokeColor = strokeColor {
+			strokeColor.setStroke()
+		} else {
+			NSColor.textColor.setStroke()
+		}
+
 		circlePath.lineWidth = 1
 		circlePath.stroke()
-		fillColor.setFill()
-		circlePath.fill()
+
+		if let fillColor = fillColor {
+			fillColor.setFill()
+			circlePath.fill()
+		}
 
 		// Draw selection
-
-		if self.state == .on {
+		if self.state == .on
+		{
 			let circlePath = NSBezierPath(ovalIn: rect.insetBy(dx: 8, dy: 8))
 
-			if let gs = NSGraphicsContext.current {
-				gs.saveGraphicsState()
+			if self.isHighContrast() {
+				NSColor.white.setFill()
+				NSColor.black.setStroke()
+				circlePath.fill()
+				circlePath.lineWidth = 0.5
+				circlePath.stroke()
+			} else {
 				DSFFinderColorCircleButton.Shadow.set()
 				NSColor.white.setFill()
 				circlePath.fill()
-				gs.restoreGraphicsState()
 			}
 		}
 	}
@@ -87,19 +120,6 @@ private extension NSColor {
 		var alpha: CGFloat = 0
 		convertedColor.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
 		return NSColor(calibratedHue: hue, saturation: saturation * by, brightness: brightness, alpha: alpha)
-	}
-
-	func saturatedColor() -> NSColor {
-		guard let convertedColor = self.usingColorSpace(.genericRGB) else {
-			return self
-		}
-
-		var hue: CGFloat = 0
-		var saturation: CGFloat = 0
-		var brightness: CGFloat = 0
-		var alpha: CGFloat = 0
-		convertedColor.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
-		return NSColor(calibratedHue: hue, saturation: saturation * 1.2, brightness: brightness, alpha: alpha)
 	}
 }
 
@@ -175,25 +195,20 @@ open class DSFFinderColorGridView: NSGridView {
 
 	private func finderColorButtons() -> [DSFFinderColorCircleButton] {
 		var arr = [DSFFinderColorCircleButton]()
-		for color in DSFFinderColorGridView.FinderColors {
+		for color in DSFFinderLabels.FinderColors.colorsRainbowOrdered {
 			let button = DSFFinderColorCircleButton(frame: NSRect(x: 0, y: 0, width: 24, height: 24))
 			button.isBordered = false
 			button.title = ""
 			button.bezelStyle = .shadowlessSquare
 			button.setButtonType(.onOff)
-			button.addConstraint(
-				NSLayoutConstraint(item: button, attribute: .width,
-				                   relatedBy: .equal,
-				                   toItem: nil, attribute: .notAnAttribute,
-				                   multiplier: 1, constant: 24))
-			button.addConstraint(
-				NSLayoutConstraint(item: button, attribute: .height,
-				                   relatedBy: .equal,
-				                   toItem: nil, attribute: .notAnAttribute,
-				                   multiplier: 1, constant: 24))
 
-			button.lightColor = color.color.lighter(by: 0.75)
-			button.darkColor = color.color
+			button.grab.width(24, relation: .equal)
+			button.grab.height(24, relation: .equal)
+
+			if color.index != .none
+			{
+				button.drawColor = color.color
+			}
 			button.tag = color.index.rawValue
 			button.setAccessibilityLabel(color.label)
 			button.toolTip = color.label

@@ -10,6 +10,8 @@
 
 #import <DSFFinderLabels/DSFFinderLabels.h>
 
+#include <sys/xattr.h>
+
 @interface DSFFinderLabelsTests_objc : XCTestCase
 
 @end
@@ -102,6 +104,39 @@
 	XCTAssertEqual(2, [colorValues count]);
 	XCTAssertTrue([colorValues containsObject:@(DSFFinderLabelsColorIndexRed)]);
 	XCTAssertTrue([colorValues containsObject:@(DSFFinderLabelsColorIndexBlue)]);
+}
+
+- (void)testBlah
+{
+//	ssize_t bufLength = getxattr("/Users/dford/Desktop/text.txt", "com.apple.metadata:_kMDItemUserTags", nil, 0, 0, 0);
+//
+//	void* buf = malloc(bufLength);
+//
+//	getxattr("/Users/dford/Desktop/text.txt", "com.apple.metadata:_kMDItemUserTags", buf, bufLength, 0, 0);
+//	NSData* myData = [NSData dataWithBytes:buf length:bufLength];
+//
+//	NSError* err = nil;
+//	NSDictionary* dict = [NSKeyedUnarchiver unarchivedObjectOfClass:[NSDictionary class]
+//														   fromData:myData
+//															  error:&err];
+//
+//	err = nil;
+//	NSPropertyListSerialization* pl = [NSPropertyListSerialization propertyListWithData:myData
+//																				options:NSPropertyListMutableContainersAndLeaves
+//																				 format:nil error:&err];
+//
+//	NSMutableArray* arr = pl;
+//	[arr addObject:@"Noodle\n5"];
+//
+//	NSData* output = [NSPropertyListSerialization dataWithPropertyList:pl
+//												 format:NSPropertyListBinaryFormat_v1_0
+//												options:0
+//													error:nil];
+//
+//	int ret = setxattr("/Users/dford/Desktop/text.txt", "com.apple.metadata:_kMDItemUserTags", output.bytes, output.length, 0, 0);
+//
+//	[[NSNotificationCenter defaultCenter] postNotificationName:NSWorkspaceDidChangeFileLabelsNotification
+//														object:[NSWorkspace sharedWorkspace]];
 }
 
 @end

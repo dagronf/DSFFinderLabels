@@ -21,7 +21,7 @@ public extension DSFFinderLabels
 		///   - completion: called when the search is complete
 		/// - Returns: A search object
 		static func search(for labels: DSFFinderLabels, exactMatch: Bool = true, completion: @escaping ((Set<URL>) -> Void)) -> Search {
-			let obj = Search(searchTags: labels.allTags(), exactMatch: exactMatch, completion: completion)
+			let obj = Search(searchTags: labels.allLabels(), exactMatch: exactMatch, completion: completion)
 			obj.internalSearch(for: labels)
 			return obj
 		}
@@ -91,7 +91,7 @@ public extension DSFFinderLabels
 	/// - Returns: search object
 	public func findAllMatching(exactMatch: Bool = true, completion: @escaping ((Set<URL>) -> Void)) -> Search?
 	{
-		let tags = self.allTags()
+		let tags = self.allLabels()
 		if tags.count == 0
 		{
 			return nil
@@ -101,38 +101,26 @@ public extension DSFFinderLabels
 	}
 
 
-//	public func findAllMatching() -> [URL]
-//	{
-//		var result = [URL]()
-//
-//		guard self.allTags().count > 0 else
-//		{
-//			return []
-//		}
-//
-//		let query = MDQueryCreate(kCFAllocatorDefault, self.queryString() as CFString, nil, nil)
-//
-//		MDQuerySetSearchScope(query, [kMDQueryScopeHome] as CFArray, 0)
-//
-//		MDQueryExecute(query, CFOptionFlags(kMDQuerySynchronous.rawValue))
-//
-//		let count = MDQueryGetResultCount(query);
-//		for i in 0 ..< count {
-//			let rawPtr = MDQueryGetResultAtIndex(query, i)
-//			let item = Unmanaged<MDItem>.fromOpaque(rawPtr!).takeUnretainedValue()
-//			if let tags = MDItemCopyAttribute(item, "kMDItemUserTags" as CFString) as? [String],
-//				let path = MDItemCopyAttribute(item, kMDItemPath) as? String {
-//
-//				if Set(tags) == Set(allTags())
-//				{
-//					result.append(URL(fileURLWithPath: path))
-//				}
-//			}
-//		}
-//		return result
-//	}
+	/// Return all the tags that are current in use in the user's default search scope
+	static public func AllActiveTags() -> Set<String> {
+		let query = MDQueryCreate(kCFAllocatorDefault, "kMDItemUserTags == *" as CFString, nil, nil)
+		MDQueryExecute(query, CFOptionFlags(kMDQuerySynchronous.rawValue))
 
-	private func allTags() -> Set<String>
+		var result = Set<String>()
+		let count = MDQueryGetResultCount(query);
+		for i in 0 ..< count {
+			let rawPtr = MDQueryGetResultAtIndex(query, i)
+			let item = Unmanaged<MDItem>.fromOpaque(rawPtr!).takeUnretainedValue()
+			if let tags = MDItemCopyAttribute(item, "kMDItemUserTags" as CFString) as? [String] {
+				result.formUnion(Set(tags))
+			}
+		}
+
+		return result.filter { DSFFinderLabels.FinderColors.color(labelled: $0) == nil }
+	}
+
+
+	private func allLabels() -> Set<String>
 	{
 		var arr = Set<String>()
 		for colorIndex in self.colors
@@ -145,7 +133,7 @@ public extension DSFFinderLabels
 
 	private func queryString() -> String
 	{
-		let arr = self.allTags().map { "kMDItemUserTags = '\($0)'" }
+		let arr = self.allLabels().map { "kMDItemUserTags = '\($0)'" }
 		return "(" + (arr as NSArray).componentsJoined(by: " && ") + ")"
 	}
 

@@ -220,6 +220,19 @@ extension DSFFinderLabels {
 		/// The finder color definitions
 		public let colors: [ColorDefinitions.Definition]
 
+		public var colorsRainbowOrdered: [ColorDefinitions.Definition] {
+			//let order: [DSFFinderLabels.ColorIndex] = [.none, .purple, .blue, .green, .yellow, .orange, .red]
+			return [
+				self.color(for: .none)!,
+				self.color(for: .purple)!,
+				self.color(for: .blue)!,
+				self.color(for: .green)!,
+				self.color(for: .yellow)!,
+				self.color(for: .orange)!,
+				self.color(for: .red)!
+			]
+		}
+
 		fileprivate init(colors: [ColorDefinitions.Definition]) {
 			self.colors = colors
 		}
@@ -227,6 +240,11 @@ extension DSFFinderLabels {
 		/// Returns the color definition for the specified color index
 		@objc public func color(for index: ColorIndex) -> ColorDefinitions.Definition? {
 			return self.colors.first(where: { $0.index == index })
+		}
+
+		/// Returns the color definition for the specified color title
+		@objc public func color(labelled label: String) -> ColorDefinitions.Definition? {
+			return self.colors.first(where: { $0.label == label })
 		}
 	}
 }

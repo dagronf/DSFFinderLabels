@@ -130,58 +130,23 @@ class DSFTaggerViewController: NSCollectionViewItem {
 		self.view.addSubview(colorSelector)
 		self.view.addSubview(tagSelector)
 
-		self.view.addConstraints(
-			NSLayoutConstraint.constraints(withVisualFormat: "V:|-(==0)-[taggerLabel]-(==8)-[colors]-(==8)-[tags]-(>=20)-|",
-										   options: [],
-										   metrics: nil,
-										   views: ["colors": colorSelector, "tags": tagSelector, "taggerLabel": taggerLabel]))
+		let vc = self.view.grab
+		vc.vStack([(.equal, 0, taggerLabel),
+				   (.equal, 8, colorSelector),
+				   (.equal, 8, tagSelector)],
+				  .greaterThanOrEqual, 8)
 
-		self.view.addConstraints(
-			NSLayoutConstraint.constraints(withVisualFormat: "H:|-(==0)-[colors]-(==0)-|",
-										   options: [],
-										   metrics: nil,
-										   views: ["colors": colorSelector, "tags": tagSelector]))
+		// Fix the height of the tag selector
+		tagSelector.grab.height(50, relation: .equal)
 
-		self.view.addConstraint(
-			NSLayoutConstraint(item: taggerLabel, attribute: .leading,
-							   relatedBy: .equal,
-							   toItem: colorSelector, attribute: .leading,
-							   multiplier: 1, constant: 0))
-		self.view.addConstraint(
-			NSLayoutConstraint(item: taggerLabel, attribute: .trailing,
-							   relatedBy: .equal,
-							   toItem: colorSelector, attribute: .trailing,
-							   multiplier: 1, constant: 0))
+		vc.equal(.leading, colorSelector, self.view)
+		vc.equal(.trailing, colorSelector, self.view)
 
-		//		self.view.addConstraints(
-		//			NSLayoutConstraint.constraints(withVisualFormat: "H:|-(==0)-[taggerLabel]-(>=0)-|",
-		//										   options: [],
-		//										   metrics: nil,
-		//										   views: ["taggerLabel": taggerLabel]))
+		vc.equal(.leading, taggerLabel, colorSelector)
+		vc.equal(.trailing, taggerLabel, colorSelector)
 
-		self.view.addConstraint(
-			NSLayoutConstraint(item: tagSelector, attribute: .leading,
-							   relatedBy: .equal,
-							   toItem: colorSelector, attribute: .leading,
-							   multiplier: 1, constant: 0))
-		self.view.addConstraint(
-			NSLayoutConstraint(item: tagSelector, attribute: .trailing,
-							   relatedBy: .equal,
-							   toItem: colorSelector, attribute: .trailing,
-							   multiplier: 1, constant: 0))
-
-
-		//		self.view.addConstraints(
-		//			NSLayoutConstraint.constraints(withVisualFormat: "H:|-(==0)-[tagSelector]-(>=0)-|",
-		//										   options: [],
-		//										   metrics: nil,
-		//										   views: ["tagSelector": tagSelector] ))
-
-		tagSelector.addConstraint(
-			NSLayoutConstraint(item: tagSelector, attribute: .height,
-							   relatedBy: .equal,
-							   toItem: nil, attribute: .notAnAttribute,
-							   multiplier: 1, constant: 50))
+		vc.equal(.leading, tagSelector, colorSelector)
+		vc.equal(.trailing, tagSelector, colorSelector)
 
 	}
 

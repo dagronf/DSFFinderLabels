@@ -151,4 +151,17 @@ class DSFFinderLabelsTests: XCTestCase {
 //
 //		self.wait(for: [expectation], timeout: 5.0)
 //	}
+
+	func testBbbbb()
+	{
+		let tags = DSFFinderLabels.AllActiveTags()
+
+		var i = 0
+		i += 1
+
+
+
+
+	}
+
 }
