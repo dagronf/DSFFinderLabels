@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		230FA59C22162B7E000F6D31 /* DSFFinderColorCircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230FA59B22162B7E000F6D31 /* DSFFinderColorCircleButton.swift */; };
 		232E70BA22101FFF003610D6 /* DSFConstraintsBuilder_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232E70B922101FFF003610D6 /* DSFConstraintsBuilder_macOS.swift */; };
 		2332CD95220D420B00D6ABE4 /* DSFFinderLabels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2332CD8B220D420B00D6ABE4 /* DSFFinderLabels.framework */; };
 		2332CD9A220D420B00D6ABE4 /* DSFFinderLabelsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2332CD99220D420B00D6ABE4 /* DSFFinderLabelsTests.swift */; };
@@ -62,6 +63,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		230FA59B22162B7E000F6D31 /* DSFFinderColorCircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSFFinderColorCircleButton.swift; sourceTree = "<group>"; };
 		232E70B922101FFF003610D6 /* DSFConstraintsBuilder_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSFConstraintsBuilder_macOS.swift; sourceTree = "<group>"; };
 		2332CD8B220D420B00D6ABE4 /* DSFFinderLabels.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DSFFinderLabels.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2332CD8E220D420B00D6ABE4 /* DSFFinderLabels.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DSFFinderLabels.h; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				2332CD8F220D420B00D6ABE4 /* Info.plist */,
 				2332CDA5220D422100D6ABE4 /* DSFFinderLabels.swift */,
 				234A4036220E4CD900E84403 /* DSFFinderLabels+objc.swift */,
+				230FA59B22162B7E000F6D31 /* DSFFinderColorCircleButton.swift */,
 				2332CDBB220D625F00D6ABE4 /* DSFFinderColorGridView.swift */,
 				239C45E6220FC9D700C6329F /* DSFFinderLabels+Search.swift */,
 				232E70B922101FFF003610D6 /* DSFConstraintsBuilder_macOS.swift */,
@@ -461,6 +464,7 @@
 				234A4037220E4CD900E84403 /* DSFFinderLabels+objc.swift in Sources */,
 				234A4038220E7BA500E84403 /* DSFFinderColorGridView.swift in Sources */,
 				232E70BA22101FFF003610D6 /* DSFConstraintsBuilder_macOS.swift in Sources */,
+				230FA59C22162B7E000F6D31 /* DSFFinderColorCircleButton.swift in Sources */,
 				2332CDA6220D422100D6ABE4 /* DSFFinderLabels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

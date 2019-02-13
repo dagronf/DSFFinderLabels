@@ -60,8 +60,12 @@ public extension DSFFinderLabels
 			self.metadataSearch.start()
 		}
 
-		private func complete() {
+		public func stop() {
 			self.metadataSearch.stop()
+		}
+
+		private func complete() {
+			self.stop()
 
 			var results = Set<URL>()
 			for count in 0 ..< self.metadataSearch.resultCount

@@ -145,11 +145,8 @@ extension DSFFinderLabels {
 		var tags = self.tags
 
 		// Add in the user's colors as tags
-		for color in self.colors {
-			if let color = DSFFinderLabels.FinderColors.color(for: color) {
-				tags.insert(color.label)
-			}
-		}
+		let colorTags = self.colors.compactMap { DSFFinderLabels.FinderColors.color(for: $0)?.label }
+		tags.formUnion(colorTags)
 
 		try (url as NSURL).setResourceValue(Array(tags), forKey: .tagNamesKey)
 	}
@@ -220,10 +217,11 @@ extension DSFFinderLabels {
 		/// The finder color definitions
 		public let colors: [ColorDefinitions.Definition]
 
+		/// Returns the colors in rainbow order
 		public var colorsRainbowOrdered: [ColorDefinitions.Definition] {
-			//let order: [DSFFinderLabels.ColorIndex] = [.none, .purple, .blue, .green, .yellow, .orange, .red]
 			return [
 				self.color(for: .none)!,
+				self.color(for: .grey)!,
 				self.color(for: .purple)!,
 				self.color(for: .blue)!,
 				self.color(for: .green)!,
