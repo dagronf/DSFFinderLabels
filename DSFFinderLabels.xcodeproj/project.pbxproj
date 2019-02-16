@@ -95,6 +95,7 @@
 		234A4050220E942700E84403 /* Finder_Tagger.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Finder_Tagger.entitlements; sourceTree = "<group>"; };
 		234A4057220E949A00E84403 /* DSFTaggerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSFTaggerViewController.swift; sourceTree = "<group>"; };
 		239C45E6220FC9D700C6329F /* DSFFinderLabels+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DSFFinderLabels+Search.swift"; sourceTree = "<group>"; };
+		23B1BBD9221795DE004DDE4A /* Finder Tagger.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Finder Tagger.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +223,7 @@
 		234A4042220E942700E84403 /* Finder Tagger */ = {
 			isa = PBXGroup;
 			children = (
+				23B1BBD9221795DE004DDE4A /* Finder Tagger.entitlements */,
 				234A4043220E942700E84403 /* AppDelegate.swift */,
 				234A4045220E942700E84403 /* Document.swift */,
 				234A4047220E942700E84403 /* Document.xib */,
@@ -386,6 +388,11 @@
 					};
 					234A4040220E942700E84403 = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -863,7 +870,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Finder Tagger/Finder_Tagger.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 3L6RK3LGGW;
@@ -882,7 +888,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Finder Tagger/Finder_Tagger.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 3L6RK3LGGW;

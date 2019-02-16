@@ -10,118 +10,88 @@ import Cocoa
 
 import DSFFinderLabels
 
-
-class CollectionViewLeftFlowLayout: NSCollectionViewFlowLayout
-{
-	override func layoutAttributesForElements(in rect: CGRect) -> [NSCollectionViewLayoutAttributes]
-	{
-		let defaultAttributes = super.layoutAttributesForElements(in: rect)
-
-		if defaultAttributes.isEmpty {
-			return defaultAttributes
-		}
-
-		var leftAlignedAttributes = [NSCollectionViewLayoutAttributes]()
-
-		var xCursor = self.sectionInset.left                            // left margin
-		var lastYPosition = defaultAttributes[0].frame.origin.y         // if/when there is a new row, we want to start at left margin
-		var lastItemHeight = defaultAttributes[0].frame.size.height
-
-		for attributes in defaultAttributes
-		{
-			// copy() Needed to avoid warning from CollectionView that cached values are mismatched
-			guard let newAttributes = attributes.copy() as? NSCollectionViewLayoutAttributes else {
-				continue;
-			}
-
-			if newAttributes.frame.origin.y > (lastYPosition + lastItemHeight)
-			{
-				// We have started a new row
-				xCursor = self.sectionInset.left
-				lastYPosition = newAttributes.frame.origin.y
-			}
-
-			newAttributes.frame.origin.x = xCursor
-
-			xCursor += newAttributes.frame.size.width + minimumInteritemSpacing
-			lastItemHeight = newAttributes.frame.size.height
-
-			leftAlignedAttributes.append(newAttributes)
-		}
-		return leftAlignedAttributes
-	}
+protocol DSFDragFilesViewProtocol {
+	func droppedFiles(urls: [URL])
 }
 
-class LeftFlowLayout: NSCollectionViewFlowLayout {
+class DSFDragFilesView: NSView {
 
-	override func layoutAttributesForElements(in rect: CGRect) -> [NSCollectionViewLayoutAttributes] {
+	var dropDelegate: DSFDragFilesViewProtocol?
 
+	static let fileURLs = NSPasteboard.PasteboardType(rawValue: "NSFilenamesPboardType")
 
-		let defaultAttributes = super.layoutAttributesForElements(in: rect)
+	override init(frame frameRect: NSRect) {
+		super.init(frame: frameRect)
+		self.setup()
+	}
 
-		if defaultAttributes.isEmpty {
-			// we rely on 0th element being present,
-			// bail if missing (when there's no work to do anyway)
-			return defaultAttributes
+	required init?(coder decoder: NSCoder) {
+		super.init(coder: decoder)
+		self.setup()
+	}
+
+	private func setup() {
+		self.registerForDraggedTypes([DSFDragFilesView.fileURLs])
+	}
+
+	override func draggingEntered(_ sender: NSDraggingInfo) -> NSDragOperation {
+		return .copy
+	}
+
+	override func performDragOperation(_ sender: NSDraggingInfo) -> Bool {
+
+		if let files = sender.draggingPasteboard.propertyList(forType: DSFDragFilesView.fileURLs) as? [String] {
+			let URLs = files.map { URL(fileURLWithPath: $0) }
+			self.dropDelegate?.droppedFiles(urls: URLs)
+			return true
 		}
-
-		var leftAlignedAttributes = [NSCollectionViewLayoutAttributes]()
-
-		var xCursor = self.sectionInset.left // left margin
-
-		// if/when there is a new row, we want to start at left margin
-		// the default FlowLayout will sometimes centre items,
-		// i.e. new rows do not always start at the left edge
-
-		var lastYPosition = defaultAttributes[0].frame.origin.y
-
-		for attributes in defaultAttributes {
-			if attributes.frame.origin.y > lastYPosition {
-				// we have changed line
-				xCursor = self.sectionInset.left
-				lastYPosition = attributes.frame.origin.y
-			}
-
-			attributes.frame.origin.x = xCursor
-			// by using the minimumInterimitemSpacing we no we'll never go
-			// beyond the right margin, so no further checks are required
-			xCursor += attributes.frame.size.width + minimumInteritemSpacing
-
-			leftAlignedAttributes.append(attributes)
-		}
-		return leftAlignedAttributes
+		return false
 	}
 }
 
 
+class DSFTaggerViewController:
+	NSViewController,
+	DSFDragFilesViewProtocol,
+	DSFFinderColorGridViewProtocol,
+	NSTokenFieldDelegate {
 
+	let tags = DSFFinderLabels()
 
-
-class DSFTaggerViewController: NSCollectionViewItem {
-
-	var taggerLabel: NSTextField?
-	var colorSelector: DSFFinderColorGridView?
-	var tagSelector: DSFFinderTagsField?
+	let taggerLabel = NSTextField()
+	let colorSelector = DSFFinderColorGridView()
+	let tagSelector = DSFFinderTagsField()
 
 	var activeSearch: DSFFinderLabels.Search?
 
+	func droppedFiles(urls: [URL]) {
+
+		self.tags.colors = Set(colorSelector.selectedColors)
+		self.tags.tags = Set(tagSelector.finderTags)
+
+		try? self.tags.update(urls: urls)
+	}
+
 	override func loadView()
 	{
-		self.view = NSView()
+		let primaryView = DSFDragFilesView(frame: NSRect(x: 0, y: 0, width: 300, height: 300))
+		primaryView.dropDelegate = self
+		self.view = primaryView
 		self.view.translatesAutoresizingMaskIntoConstraints = false
 
-		let colorSelector = DSFFinderColorGridView()
-		self.colorSelector = colorSelector
-
+		// Setup the color selector
 		colorSelector.setContentCompressionResistancePriority(.required, for: .vertical)
-		colorSelector.setContentHuggingPriority(.defaultLow, for: .vertical)
+		colorSelector.setContentHuggingPriority(.required, for: .vertical)
+		colorSelector.setContentCompressionResistancePriority(.required, for: .horizontal)
+		colorSelector.setContentHuggingPriority(.required, for: .horizontal)
 		colorSelector.translatesAutoresizingMaskIntoConstraints = false
+		colorSelector.selectionDelegate = self
 
-		let tagSelector = DSFFinderTagsField()
-		self.tagSelector = tagSelector
+		// Setup the tag selector
 		tagSelector.translatesAutoresizingMaskIntoConstraints = false
+		tagSelector.delegate = self
 
-		let taggerLabel = NSTextField()
+		// Setup the label
 		taggerLabel.isEditable = true
 		taggerLabel.translatesAutoresizingMaskIntoConstraints = false
 		taggerLabel.setContentHuggingPriority(.defaultLow, for: .vertical)
@@ -131,38 +101,45 @@ class DSFTaggerViewController: NSCollectionViewItem {
 		self.view.addSubview(tagSelector)
 
 		let vc = self.view.grab
-		vc.vStack([(.equal, 0, taggerLabel),
-				   (.equal, 8, colorSelector),
-				   (.equal, 8, tagSelector)],
-				  .greaterThanOrEqual, 8)
+		vc.vStack([(.equal, 10, taggerLabel),
+				   (.equal, 10, colorSelector),
+				   (.equal, 10, tagSelector)],
+				  .greaterThanOrEqual, 10)
 
 		// Fix the height of the tag selector
 		tagSelector.grab.height(50, relation: .equal)
 
-		vc.equal(.leading, colorSelector, self.view)
-		vc.equal(.trailing, colorSelector, self.view)
+		vc.equal(.leading, taggerLabel, self.view, constant: 10)
+		vc.equal(.trailing, taggerLabel, self.view, constant: -10)
 
-		vc.equal(.leading, taggerLabel, colorSelector)
-		vc.equal(.trailing, taggerLabel, colorSelector)
+		vc.equal(.leading, tagSelector, taggerLabel)
+		vc.equal(.trailing, tagSelector, taggerLabel)
 
-		vc.equal(.leading, tagSelector, colorSelector)
-		vc.equal(.trailing, tagSelector, colorSelector)
+		vc.equal(.leading, colorSelector, self.view, constant: 10)
+		let c = vc.equal(.trailing, colorSelector, self.view, constant: -10)
+		c?.priority = .defaultLow
 
+		self.view.needsLayout = true
 	}
 
-	func search()
-	{
-		if let colors = self.colorSelector?.selectedColors
-		{
-			let tags = self.taggerLabel?.objectValue as? [String] ?? []
-			
-			let labels = DSFFinderLabels()
-			labels.colors = Set(colors)
-			labels.tags = Set(tags)
+	func controlTextDidEndEditing(_ obj: Notification) {
+		self.tags.tags = Set(self.tagSelector.finderTags)
+	}
 
-			self.activeSearch = labels.findAllMatching { (urls) in
-				print(urls)
-			}
+	var searchCallback: ((Set<URL>) -> Void)?
+
+	func search() {
+
+		self.activeSearch?.stop()
+		self.activeSearch = nil
+
+		self.activeSearch = self.tags.findAllMatching { (urls) in
+			print(urls)
 		}
+	}
+
+	func selectionChanged(colorIndexes: Set<DSFFinderLabels.ColorIndex>) {
+		self.tags.colors = colorIndexes
+		self.search()
 	}
 }

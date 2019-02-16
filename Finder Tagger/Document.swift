@@ -8,17 +8,10 @@
 
 import Cocoa
 
-class Document: NSDocument, NSCollectionViewDataSource {
-	func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
-		return 10
-	}
+class Document: NSDocument {
 
-	func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
-		return DSFTaggerViewController()
-	}
-
-
-	@IBOutlet weak var taggerCollectionView: NSCollectionView!
+	let items = [DSFTaggerViewController(), DSFTaggerViewController(), DSFTaggerViewController()]
+	@IBOutlet weak var tableView: NSTableView!
 
 	override init() {
 	    super.init()
@@ -49,22 +42,31 @@ class Document: NSDocument, NSCollectionViewDataSource {
 	}
 
 	override func awakeFromNib() {
-		self.taggerCollectionView.dataSource = self
-		self.taggerCollectionView.delegate = self
+		self.tableView.translatesAutoresizingMaskIntoConstraints = false
 
+		let col0 = self.tableView.tableColumns[0]
+		col0.minWidth = self.items[0].view.fittingSize.width + 30
+
+		super.awakeFromNib()
 	}
 
 }
 
-extension Document: NSCollectionViewDelegateFlowLayout
-{
-	func collectionView(_ collectionView: NSCollectionView, layout collectionViewLayout: NSCollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> NSSize
-	{
-		return NSSize(width: 200, height: 100)
+extension Document {
+
+}
+
+extension Document: NSTableViewDataSource, NSTableViewDelegate {
+	func numberOfRows(in tableView: NSTableView) -> Int {
+		return self.items.count
 	}
 
-	func collectionView(_ collectionView: NSCollectionView, layout collectionViewLayout: NSCollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-		return 10.0
+	func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
+		self.items[row].view.layout()
+		return self.items[row].view.fittingSize.height + 30
 	}
 
+	func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+		return self.items[row].view
+	}
 }
