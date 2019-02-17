@@ -30,12 +30,21 @@
 
 import Cocoa
 
-@objc open class DSFFinderLabels: NSObject {
+enum DSFFinderLabelsError: Error {
+	case sandboxed
+}
+
+@objc open class DSFFinderLabels: NSObject, Codable {
 
 	// MARK: Definitions
 
+	enum CodingKeys : String, CodingKey {
+		case tags
+		case colors
+	}
+
 	/// Standard Finder color indexes
-	@objc(DSFFinderLabelsColorIndex) public enum ColorIndex: Int {
+	@objc(DSFFinderLabelsColorIndex) public enum ColorIndex: Int, Codable {
 		case none = 0
 		case grey = 1
 		case green = 2
@@ -64,26 +73,23 @@ import Cocoa
 	// MARK: Settable members
 
 	/// The currently defined tags
-	public var tags = Set<String>()
+	public var tags: Set<String>
 	/// The currently defined color indexes
-	public var colors = Set<DSFFinderLabels.ColorIndex>()
+	public var colors: Set<DSFFinderLabels.ColorIndex>
 
 	public var activeSearch: DSFFinderLabels.Search?
 
 	// MARK: Initializers
 
-	public override init() {
-		super.init()
-	}
-
 	public init(colors: [ColorIndex] = [], tags: [String] = []) {
-		super.init()
-
 		self.colors = Set(colors)
 		self.tags = Set(tags)
+		super.init()
 	}
 
 	public init(fileURL: URL) {
+		self.tags = Set<String>()
+		self.colors = Set<DSFFinderLabels.ColorIndex>()
 		super.init()
 		self.reset(with: fileURL)
 	}
@@ -154,6 +160,79 @@ extension DSFFinderLabels {
 	/// Update the given URLs with the current label values
 	@objc public func update(urls: [URL]) throws {
 		try urls.forEach { try self.update(url: $0) }
+	}
+}
+
+extension DSFFinderLabels {
+
+	static private func throwIfSandboxed() throws {
+		let bundleURL = Bundle.main.bundleURL
+		var staticCode: SecStaticCode?
+		let kSecCSDefaultFlags:SecCSFlags = SecCSFlags(rawValue: SecCSFlags.RawValue(0))
+
+		if SecStaticCodeCreateWithPath(bundleURL as CFURL, kSecCSDefaultFlags, &staticCode) == errSecSuccess {
+			if SecStaticCodeCheckValidityWithErrors(staticCode!, SecCSFlags(rawValue: kSecCSBasicValidateOnly), nil, nil) == errSecSuccess {
+				let appSandbox = "entitlement[\"com.apple.security.app-sandbox\"] exists"
+				var sandboxRequirement:SecRequirement?
+
+				if SecRequirementCreateWithString(appSandbox as CFString, kSecCSDefaultFlags, &sandboxRequirement) == errSecSuccess {
+					let codeCheckResult:OSStatus  = SecStaticCodeCheckValidityWithErrors(staticCode!, SecCSFlags(rawValue: kSecCSBasicValidateOnly), sandboxRequirement, nil)
+					if (codeCheckResult == errSecSuccess) {
+						throw DSFFinderLabelsError.sandboxed
+					}
+				}
+			}
+		}
+		return
+	}
+
+	static private func allTagLabels() throws -> [(String, Int)] {
+
+		/// Cannot be called from a sandboxed environment
+		try throwIfSandboxed()
+
+		let libPath = NSSearchPathForDirectoriesInDomains(.libraryDirectory, .userDomainMask, true)
+		guard libPath.count > 0 else {
+			return []
+		}
+
+		let ll = libPath[0]
+		let url = URL(fileURLWithPath: "SyncedPreferences/com.apple.finder.plist",
+					  relativeTo: URL(fileURLWithPath: ll))
+
+		let keyPath = "values.FinderTagDict.value.FinderTags"
+		if let d = try? Data(contentsOf: url) {
+			if let plist = try? PropertyListSerialization.propertyList(from: d, options: [], format: nil),
+				let pdict = plist as? NSDictionary,
+				let ftags = pdict.value(forKeyPath: keyPath) as? [[AnyHashable: Any]]
+			{
+				return ftags.compactMap {
+					if let name = $0["n"] as? String {
+						let index = $0["l"] as? Int ?? -1
+						return (name, index)
+					}
+					return nil
+				}
+			}
+		}
+		return []
+	}
+
+	static public func allTags() throws -> [(String, DSFFinderLabels.ColorIndex)] {
+		let vals = try self.allTagLabels()
+
+		let colorLabels = DSFFinderLabels.FinderColors.allColorLabels
+
+		var tags = [(String, DSFFinderLabels.ColorIndex)]()
+		for tag in vals {
+			if !colorLabels.contains(tag.0) {
+				let ci = ColorIndex(rawValue: tag.1) ?? .none
+				tags.append((tag.0, ci))
+			}
+		}
+
+		// Map the tags and colors to the output
+		return tags
 	}
 }
 
@@ -244,6 +323,11 @@ extension DSFFinderLabels {
 		@objc public func color(labelled label: String) -> ColorDefinitions.Definition? {
 			return self.colors.first(where: { $0.label == label })
 		}
+
+		/// Returns the (localized) labels for all of the known finder colors
+		@objc var allColorLabels: Set<String> {
+			return Set(self.colors.map { $0.label })
+		}
 	}
 }
 
@@ -261,7 +345,7 @@ public extension URL {
 	}
 
 	public func setFinderLabels(colors: [DSFFinderLabels.ColorIndex] = [], tags: [String] = []) throws {
-		let labels = DSFFinderLabels(colors: colors, tags: tags)
-		try labels.update(url: self)
+//		let labels = DSFFinderLabels(colors: colors, tags: tags)
+//		try labels.update(url: self)
 	}
 }

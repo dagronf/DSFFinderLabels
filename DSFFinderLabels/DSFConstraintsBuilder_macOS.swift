@@ -96,8 +96,8 @@ import Cocoa
 	}
 
 	@discardableResult
-	public func centerX(_ view1: NSView, in view2: NSView, offset: CGFloat = 0) -> NSLayoutConstraint? {
-		return self.center(attribute: .centerX, view1: view1, in: view2, constant: offset)
+	public func centerX(_ view1: NSView, offset: CGFloat = 0) -> NSLayoutConstraint? {
+		return self.center(attribute: .centerX, view1: view1, constant: offset)
 	}
 
 	@discardableResult
@@ -135,18 +135,22 @@ import Cocoa
 		return i1
 	}
 
+	@discardableResult
 	public func left(view: NSView, related: NSLayoutConstraint.Relation, constant: CGFloat = 0) -> NSLayoutConstraint? {
 		return self.makeEqualEdge(view: view, attribute: .left, related: related, constant: constant)
 	}
 
+	@discardableResult
 	public func right(view: NSView, related: NSLayoutConstraint.Relation, constant: CGFloat = 0) -> NSLayoutConstraint? {
 		return self.makeEqualEdge(view: view, attribute: .right, related: related, constant: constant)
 	}
 
+	@discardableResult
 	public func top(view: NSView, related: NSLayoutConstraint.Relation, constant: CGFloat = 0) -> NSLayoutConstraint? {
 		return self.makeEqualEdge(view: view, attribute: .top, related: related, constant: constant)
 	}
 
+	@discardableResult
 	public func bottom(view: NSView, related: NSLayoutConstraint.Relation, constant: CGFloat = 0) -> NSLayoutConstraint? {
 		return self.makeEqualEdge(view: view, attribute: .bottom, related: related, constant: constant)
 	}

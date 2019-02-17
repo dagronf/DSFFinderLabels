@@ -14,23 +14,15 @@ public protocol DSFFinderColorGridViewProtocol {
 	func selectionChanged(colorIndexes: Set<DSFFinderLabels.ColorIndex>)
 }
 
-open class DSFFinderTagsField: NSTokenField {
-	public var finderTags: [String] {
-		get {
-			return self.objectValue as? [String] ?? []
-		}
-		set {
-			self.objectValue = newValue
-		}
-	}
-}
-
 /// A view class for displaying and selecting finder colors
-open class DSFFinderColorGridView: NSGridView {
+open class DSFFinderColorGridView: NSView {
 	/// The Finder's colors
 	private static let FinderColors = DSFFinderLabels.FinderColors.colors
 
 	private var colorButtons = [DSFFinderColorCircleButton]()
+
+	private let grid = NSGridView()
+	private let buttonSize: CGFloat = 24
 
 	/// Delegate for notifying back when selections change
 	public var selectionDelegate: DSFFinderColorGridViewProtocol?
@@ -44,16 +36,36 @@ open class DSFFinderColorGridView: NSGridView {
 
 	override init(frame frameRect: NSRect) {
 		super.init(frame: frameRect)
-		self.colorButtons = self.finderColorButtons()
-		self.addRow(with: self.colorButtons)
-		self.columnSpacing = 0
+		self.setup()
 	}
 
 	public required init?(coder: NSCoder) {
 		super.init(coder: coder)
+		self.setup()
+	}
+
+	private func setup() {
+
 		self.colorButtons = self.finderColorButtons()
-		self.addRow(with: self.colorButtons)
-		self.columnSpacing = 0
+		self.grid.addRow(with: self.colorButtons)
+		self.grid.columnSpacing = 0
+		self.grid.setContentCompressionResistancePriority(.required, for: .horizontal)
+		self.grid.setContentCompressionResistancePriority(.required, for: .vertical)
+		self.grid.setContentHuggingPriority(.required, for: .horizontal)
+		self.grid.setContentHuggingPriority(.required, for: .vertical)
+
+		self.addSubview(self.grid)
+		let vc = self.grab
+
+		vc.left(view: self.grid, related: .equal, constant: 0.0)
+		vc.top(view: self.grid, related: .equal, constant: 0.0)
+		vc.bottom(view: self.grid, related: .equal, constant: 0.0)
+		vc.right(view: self.grid, related: .greaterThanOrEqual, constant: 0.0)
+
+		/// Set the height from the first button height
+		vc.height(self.colorButtons[0].frame.height, relation: .equal)
+
+		self.needsLayout = true
 	}
 
 	/// Unselect all of the colors in the control
@@ -85,14 +97,15 @@ open class DSFFinderColorGridView: NSGridView {
 	private func finderColorButtons() -> [DSFFinderColorCircleButton] {
 		var arr = [DSFFinderColorCircleButton]()
 		for color in DSFFinderLabels.FinderColors.colorsRainbowOrdered {
-			let button = DSFFinderColorCircleButton(frame: NSRect(x: 0, y: 0, width: 24, height: 24))
+			let button = DSFFinderColorCircleButton(frame: NSRect(x: 0, y: 0, width: buttonSize, height: buttonSize))
+			button.translatesAutoresizingMaskIntoConstraints = false
 			button.isBordered = false
 			button.title = ""
 			button.bezelStyle = .shadowlessSquare
 			button.setButtonType(.toggle)
 
-			button.grab.width(24, relation: .equal)
-			button.grab.height(24, relation: .equal)
+			button.grab.width(buttonSize, relation: .equal)
+			button.grab.height(buttonSize, relation: .equal)
 
 			if color.index != .none {
 				button.drawColor = color.color

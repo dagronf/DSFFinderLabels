@@ -106,8 +106,8 @@
 	XCTAssertTrue([colorValues containsObject:@(DSFFinderLabelsColorIndexBlue)]);
 }
 
-- (void)testBlah
-{
+//- (void)testBlah
+//{
 //	ssize_t bufLength = getxattr("/Users/dford/Desktop/text.txt", "com.apple.metadata:_kMDItemUserTags", nil, 0, 0, 0);
 //
 //	void* buf = malloc(bufLength);
@@ -137,6 +137,6 @@
 //
 //	[[NSNotificationCenter defaultCenter] postNotificationName:NSWorkspaceDidChangeFileLabelsNotification
 //														object:[NSWorkspace sharedWorkspace]];
-}
+//}
 
 @end
