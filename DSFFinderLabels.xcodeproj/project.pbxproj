@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		230FA59C22162B7E000F6D31 /* DSFFinderColorCircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230FA59B22162B7E000F6D31 /* DSFFinderColorCircleButton.swift */; };
-		232E70BA22101FFF003610D6 /* DSFConstraintsBuilder_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232E70B922101FFF003610D6 /* DSFConstraintsBuilder_macOS.swift */; };
 		2332CD95220D420B00D6ABE4 /* DSFFinderLabels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2332CD8B220D420B00D6ABE4 /* DSFFinderLabels.framework */; };
 		2332CD9A220D420B00D6ABE4 /* DSFFinderLabelsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2332CD99220D420B00D6ABE4 /* DSFFinderLabelsTests.swift */; };
 		2332CD9C220D420B00D6ABE4 /* DSFFinderLabels.h in Headers */ = {isa = PBXBuildFile; fileRef = 2332CD8E220D420B00D6ABE4 /* DSFFinderLabels.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -31,6 +30,7 @@
 		234A4058220E949A00E84403 /* DSFTaggerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234A4057220E949A00E84403 /* DSFTaggerViewController.swift */; };
 		239C45E7220FC9D700C6329F /* DSFFinderLabels+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239C45E6220FC9D700C6329F /* DSFFinderLabels+Search.swift */; };
 		23B9045D221A4A1800D535B2 /* DSFFinderTagsField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B9045C221A4A1800D535B2 /* DSFFinderTagsField.swift */; };
+		23D79A4822E4045B00DA722C /* DSFFinderLabels.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 23D79A4722E4045B00DA722C /* DSFFinderLabels.podspec */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,7 +65,6 @@
 
 /* Begin PBXFileReference section */
 		230FA59B22162B7E000F6D31 /* DSFFinderColorCircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSFFinderColorCircleButton.swift; sourceTree = "<group>"; };
-		232E70B922101FFF003610D6 /* DSFConstraintsBuilder_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSFConstraintsBuilder_macOS.swift; sourceTree = "<group>"; };
 		2332CD8B220D420B00D6ABE4 /* DSFFinderLabels.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DSFFinderLabels.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2332CD8E220D420B00D6ABE4 /* DSFFinderLabels.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DSFFinderLabels.h; sourceTree = "<group>"; };
 		2332CD8F220D420B00D6ABE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -98,6 +97,7 @@
 		239C45E6220FC9D700C6329F /* DSFFinderLabels+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DSFFinderLabels+Search.swift"; sourceTree = "<group>"; };
 		23B1BBD9221795DE004DDE4A /* Finder Tagger.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Finder Tagger.entitlements"; sourceTree = "<group>"; };
 		23B9045C221A4A1800D535B2 /* DSFFinderTagsField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSFFinderTagsField.swift; sourceTree = "<group>"; };
+		23D79A4722E4045B00DA722C /* DSFFinderLabels.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = DSFFinderLabels.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +146,7 @@
 		2332CD81220D420B00D6ABE4 = {
 			isa = PBXGroup;
 			children = (
+				23D79A4722E4045B00DA722C /* DSFFinderLabels.podspec */,
 				2332CDBE220D6D9700D6ABE4 /* LICENSE */,
 				2332CDBD220D6D9700D6ABE4 /* README.md */,
 				2332CD8D220D420B00D6ABE4 /* DSFFinderLabels */,
@@ -173,15 +174,10 @@
 		2332CD8D220D420B00D6ABE4 /* DSFFinderLabels */ = {
 			isa = PBXGroup;
 			children = (
+				2333B10422E4118700C25001 /* core */,
+				2333B10322E4113700C25001 /* ui */,
 				2332CD8E220D420B00D6ABE4 /* DSFFinderLabels.h */,
 				2332CD8F220D420B00D6ABE4 /* Info.plist */,
-				2332CDA5220D422100D6ABE4 /* DSFFinderLabels.swift */,
-				234A4036220E4CD900E84403 /* DSFFinderLabels+objc.swift */,
-				230FA59B22162B7E000F6D31 /* DSFFinderColorCircleButton.swift */,
-				23B9045C221A4A1800D535B2 /* DSFFinderTagsField.swift */,
-				2332CDBB220D625F00D6ABE4 /* DSFFinderColorGridView.swift */,
-				239C45E6220FC9D700C6329F /* DSFFinderLabels+Search.swift */,
-				232E70B922101FFF003610D6 /* DSFConstraintsBuilder_macOS.swift */,
 			);
 			path = DSFFinderLabels;
 			sourceTree = "<group>";
@@ -221,6 +217,26 @@
 				2332CDC8220D81AE00D6ABE4 /* Info.plist */,
 			);
 			path = DSFFinderLabelsTests_objc;
+			sourceTree = "<group>";
+		};
+		2333B10322E4113700C25001 /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				230FA59B22162B7E000F6D31 /* DSFFinderColorCircleButton.swift */,
+				2332CDBB220D625F00D6ABE4 /* DSFFinderColorGridView.swift */,
+				23B9045C221A4A1800D535B2 /* DSFFinderTagsField.swift */,
+			);
+			path = ui;
+			sourceTree = "<group>";
+		};
+		2333B10422E4118700C25001 /* core */ = {
+			isa = PBXGroup;
+			children = (
+				2332CDA5220D422100D6ABE4 /* DSFFinderLabels.swift */,
+				234A4036220E4CD900E84403 /* DSFFinderLabels+objc.swift */,
+				239C45E6220FC9D700C6329F /* DSFFinderLabels+Search.swift */,
+			);
+			path = core;
 			sourceTree = "<group>";
 		};
 		234A4042220E942700E84403 /* Finder Tagger */ = {
@@ -427,6 +443,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23D79A4822E4045B00DA722C /* DSFFinderLabels.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,7 +491,6 @@
 				234A4037220E4CD900E84403 /* DSFFinderLabels+objc.swift in Sources */,
 				234A4038220E7BA500E84403 /* DSFFinderColorGridView.swift in Sources */,
 				23B9045D221A4A1800D535B2 /* DSFFinderTagsField.swift in Sources */,
-				232E70BA22101FFF003610D6 /* DSFConstraintsBuilder_macOS.swift in Sources */,
 				230FA59C22162B7E000F6D31 /* DSFFinderColorCircleButton.swift in Sources */,
 				2332CDA6220D422100D6ABE4 /* DSFFinderLabels.swift in Sources */,
 			);
@@ -609,7 +625,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -667,7 +683,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -698,6 +714,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_BUNDLE_IDENTIFIER = com.darrenford.DSFFinderLabels;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -726,6 +743,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_BUNDLE_IDENTIFIER = com.darrenford.DSFFinderLabels;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;

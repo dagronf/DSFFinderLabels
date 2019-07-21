@@ -34,7 +34,6 @@ import Cocoa
 // type in that language
 
 @objc public extension DSFFinderLabels {
-
 	// MARK: (Obj-C) Tags access and update
 
 	/// Add the specified tag to the set of tags
@@ -64,8 +63,7 @@ import Cocoa
 
 	// MARK: (Obj-C) Color access and update
 
-	@nonobjc private func convert(from colorValues: Set<NSNumber>) throws -> Set<ColorIndex>
-	{
+	@nonobjc private func convert(from colorValues: Set<NSNumber>) throws -> Set<ColorIndex> {
 		var result = Set<ColorIndex>()
 		for colorVal in colorValues {
 			guard let color = ColorIndex(rawValue: colorVal.intValue) else {
@@ -80,11 +78,13 @@ import Cocoa
 	func addColor(index: ColorIndex) {
 		self.colors.insert(index)
 	}
+
 	/// Add the specified color indexes to the set of color indexes
 	func addColors(colorValues: Set<NSNumber>) throws {
 		let result = try self.convert(from: colorValues)
 		self.colors.formUnion(result)
 	}
+
 	/// Remove the specified color index from the set of color indexes
 	func removeColor(index: ColorIndex) {
 		self.colors.remove(index)
@@ -101,7 +101,7 @@ import Cocoa
 
 	/// Returns the set of color indexes as a set of NSNumber
 	func getColorValues() -> Set<NSNumber> {
-		return Set(self.colors.map { NSNumber.init(value: $0.rawValue) })
+		return Set(self.colors.map { NSNumber(value: $0.rawValue) })
 	}
 
 	/// Sets the current color indexes (objc)
@@ -116,21 +116,20 @@ import Cocoa
 // MARK: - NSURL Extension
 
 @objc public extension NSURL {
-
 	/// Returns the finder labels for the current NSURL
-	public func finderLabels() -> DSFFinderLabels {
+	func finderLabels() -> DSFFinderLabels {
 		return DSFFinderLabels(fileURL: self as URL)
 	}
 
 	/// Set the labels defined by 'finderLabels' to the NSURL
-	public func setFinderLabels(finderLabels: DSFFinderLabels) throws {
+	func setFinderLabels(finderLabels: DSFFinderLabels) throws {
 		try finderLabels.update(url: self as URL)
 	}
 
-	public func setFinderLabels(colorValues: [NSNumber] = [], tags: [String] = []) throws {
+	func setFinderLabels(colorValues: [NSNumber] = [], tags: [String] = []) throws {
 		var vals = [DSFFinderLabels.ColorIndex]()
 		for value in colorValues {
-			guard let val = DSFFinderLabels.ColorIndex.init(rawValue: value.intValue) else {
+			guard let val = DSFFinderLabels.ColorIndex(rawValue: value.intValue) else {
 				throw NSError(domain: "Bad index", code: -1, userInfo: nil)
 			}
 			vals.append(val)
@@ -139,5 +138,4 @@ import Cocoa
 		let labels = DSFFinderLabels(colors: vals, tags: tags)
 		try labels.update(url: self as URL)
 	}
-
 }

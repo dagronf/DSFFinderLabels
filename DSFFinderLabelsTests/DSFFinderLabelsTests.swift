@@ -110,9 +110,8 @@ class DSFFinderLabelsTests: XCTestCase {
 		}
 
 		let labels = DSFFinderLabels()
-		labels.colors.insert(.green)
-		labels.colors.insert(.orange)
-		labels.tags.insert("Work Related")
+		labels.set(colors: [.green, .orange])
+		labels.set(tags: ["Work Related"])
 
 		guard let _ = try? labels.update(urls: [file1.fileURL, file2.fileURL, file3.fileURL]) else {
 			fatalError("Could not update temporary files")
@@ -127,6 +126,25 @@ class DSFFinderLabelsTests: XCTestCase {
 		let l3 = DSFFinderLabels(fileURL: file3.fileURL)
 		XCTAssertEqual(l3.colors, Set([DSFFinderLabels.ColorIndex.green, DSFFinderLabels.ColorIndex.orange]))
 		XCTAssertEqual(l3.tags, Set(["Work Related"]))
+	}
+
+	func testOperators() {
+		let labels = DSFFinderLabels()
+		labels += .blue
+		labels += .red
+
+		XCTAssertTrue(labels.colors.contains(.blue))
+		XCTAssertTrue(labels.colors.contains(.red))
+
+		labels -= .blue
+		XCTAssertFalse(labels.colors.contains(.blue))
+		XCTAssertTrue(labels.colors.contains(.red))
+
+		labels -= .blue
+		XCTAssertFalse(labels.colors.contains(.blue))
+
+		labels += "Caterpillar"
+		XCTAssertTrue(labels.tags.contains("Caterpillar"))
 	}
 
 //	func testFind() {
@@ -151,17 +169,8 @@ class DSFFinderLabelsTests: XCTestCase {
 //
 //		self.wait(for: [expectation], timeout: 5.0)
 //	}
-
-	func testBbbbb()
-	{
-		let tags = DSFFinderLabels.AllActiveTags()
-
-		var i = 0
-		i += 1
-
-
-
-
-	}
-
+//
+//	func testBbbbb() {
+//		let _ = DSFFinderLabels.AllActiveTags()
+//	}
 }

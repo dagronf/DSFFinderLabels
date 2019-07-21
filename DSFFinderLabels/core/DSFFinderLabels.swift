@@ -35,10 +35,9 @@ enum DSFFinderLabelsError: Error {
 }
 
 @objc open class DSFFinderLabels: NSObject, Codable {
-
 	// MARK: Definitions
 
-	enum CodingKeys : String, CodingKey {
+	enum CodingKeys: String, CodingKey {
 		case tags
 		case colors
 	}
@@ -92,6 +91,74 @@ enum DSFFinderLabelsError: Error {
 		self.colors = Set<DSFFinderLabels.ColorIndex>()
 		super.init()
 		self.reset(with: fileURL)
+	}
+}
+
+// MARK: Swift helpers for set and unset
+
+public extension DSFFinderLabels {
+	/// Add the specified color(s) to the object
+	func set(colors: [ColorIndex]) {
+		colors.forEach { self.colors.insert($0) }
+	}
+
+	/// Remove the specified color(s) to the object
+	func unset(colors: [ColorIndex]) {
+		colors.forEach { self.colors.remove($0) }
+	}
+
+	/// Add the specified tag string(s) to the object
+	func set(tags: [String]) {
+		tags.forEach { self.tags.insert($0) }
+	}
+
+	/// Remove the specified tag string(s) from the object
+	func unset(tags: [String]) {
+		tags.forEach { self.tags.remove($0) }
+	}
+}
+
+public extension DSFFinderLabels {
+	/// Add the specified color to the object
+	static func += (lhs: DSFFinderLabels, rhs: ColorIndex) {
+		lhs.set(colors: [rhs])
+	}
+
+	/// Remove the specified color to the object
+	static func -= (lhs: DSFFinderLabels, rhs: ColorIndex) {
+		lhs.unset(colors: [rhs])
+	}
+
+	/// Add the specified color(s) to the object
+	static func += (lhs: DSFFinderLabels, rhs: [ColorIndex]) {
+		lhs.set(colors: rhs)
+	}
+
+	/// Remove the specified color(s) to the object
+	static func -= (lhs: DSFFinderLabels, rhs: [ColorIndex]) {
+		lhs.unset(colors: rhs)
+	}
+}
+
+public extension DSFFinderLabels {
+	/// Add the specified tag string to the object
+	static func += (lhs: DSFFinderLabels, rhs: String) {
+		lhs.set(tags: [rhs])
+	}
+
+	/// Add the specified tag string(s) to the object
+	static func += (lhs: DSFFinderLabels, rhs: [String]) {
+		lhs.set(tags: rhs)
+	}
+
+	/// Remove the specified tag string from the object
+	static func -= (lhs: DSFFinderLabels, rhs: String) {
+		lhs.unset(tags: [rhs])
+	}
+
+	/// Remove the specified tag string(s) from the object
+	static func -= (lhs: DSFFinderLabels, rhs: [String]) {
+		lhs.unset(tags: rhs)
 	}
 }
 
@@ -164,20 +231,19 @@ extension DSFFinderLabels {
 }
 
 extension DSFFinderLabels {
-
-	static private func throwIfSandboxed() throws {
+	private static func throwIfSandboxed() throws {
 		let bundleURL = Bundle.main.bundleURL
 		var staticCode: SecStaticCode?
-		let kSecCSDefaultFlags:SecCSFlags = SecCSFlags(rawValue: SecCSFlags.RawValue(0))
+		let kSecCSDefaultFlags: SecCSFlags = SecCSFlags(rawValue: SecCSFlags.RawValue(0))
 
 		if SecStaticCodeCreateWithPath(bundleURL as CFURL, kSecCSDefaultFlags, &staticCode) == errSecSuccess {
 			if SecStaticCodeCheckValidityWithErrors(staticCode!, SecCSFlags(rawValue: kSecCSBasicValidateOnly), nil, nil) == errSecSuccess {
 				let appSandbox = "entitlement[\"com.apple.security.app-sandbox\"] exists"
-				var sandboxRequirement:SecRequirement?
+				var sandboxRequirement: SecRequirement?
 
 				if SecRequirementCreateWithString(appSandbox as CFString, kSecCSDefaultFlags, &sandboxRequirement) == errSecSuccess {
-					let codeCheckResult:OSStatus  = SecStaticCodeCheckValidityWithErrors(staticCode!, SecCSFlags(rawValue: kSecCSBasicValidateOnly), sandboxRequirement, nil)
-					if (codeCheckResult == errSecSuccess) {
+					let codeCheckResult: OSStatus = SecStaticCodeCheckValidityWithErrors(staticCode!, SecCSFlags(rawValue: kSecCSBasicValidateOnly), sandboxRequirement, nil)
+					if codeCheckResult == errSecSuccess {
 						throw DSFFinderLabelsError.sandboxed
 					}
 				}
@@ -186,10 +252,9 @@ extension DSFFinderLabels {
 		return
 	}
 
-	static private func allTagLabels() throws -> [(String, Int)] {
-
+	private static func allTagLabels() throws -> [(String, Int)] {
 		/// Cannot be called from a sandboxed environment
-		try throwIfSandboxed()
+		try self.throwIfSandboxed()
 
 		let libPath = NSSearchPathForDirectoriesInDomains(.libraryDirectory, .userDomainMask, true)
 		guard libPath.count > 0 else {
@@ -198,14 +263,13 @@ extension DSFFinderLabels {
 
 		let ll = libPath[0]
 		let url = URL(fileURLWithPath: "SyncedPreferences/com.apple.finder.plist",
-					  relativeTo: URL(fileURLWithPath: ll))
+		              relativeTo: URL(fileURLWithPath: ll))
 
 		let keyPath = "values.FinderTagDict.value.FinderTags"
 		if let d = try? Data(contentsOf: url) {
 			if let plist = try? PropertyListSerialization.propertyList(from: d, options: [], format: nil),
 				let pdict = plist as? NSDictionary,
-				let ftags = pdict.value(forKeyPath: keyPath) as? [[AnyHashable: Any]]
-			{
+				let ftags = pdict.value(forKeyPath: keyPath) as? [[AnyHashable: Any]] {
 				return ftags.compactMap {
 					if let name = $0["n"] as? String {
 						let index = $0["l"] as? Int ?? -1
@@ -218,7 +282,7 @@ extension DSFFinderLabels {
 		return []
 	}
 
-	static public func allTags() throws -> [(String, DSFFinderLabels.ColorIndex)] {
+	public static func allTags() throws -> [(String, DSFFinderLabels.ColorIndex)] {
 		let vals = try self.allTagLabels()
 
 		let colorLabels = DSFFinderLabels.FinderColors.allColorLabels
@@ -239,7 +303,6 @@ extension DSFFinderLabels {
 // MARK: - Color Definition Helpers
 
 extension DSFFinderLabels {
-
 	/// An object that contains all of the Finder color definitions
 	@objc(DSFFinderLabelColorDefinitions) open class ColorDefinitions: NSObject {
 		/// Representation of a finder 'color' label
@@ -255,7 +318,7 @@ extension DSFFinderLabels {
 			/// This color is quite muted compared with what is shown in the Finder!
 			public let finderColor: NSColor
 
-			fileprivate init(index: ColorIndex, label: String, color: NSColor, finderColor: NSColor) {
+			fileprivate init(index: ColorIndex, label: String, color: NSColor, finderColor _: NSColor) {
 				self.index = index
 				self.label = label
 				self.color = color
@@ -270,10 +333,8 @@ extension DSFFinderLabels {
 		///
 		/// - Parameter colorIndex: The color index
 		/// - Returns: The custom color for the index
-		fileprivate static func CustomColorForIndex(_ colorIndex: ColorIndex) -> NSColor
-		{
-			switch colorIndex
-			{
+		fileprivate static func CustomColorForIndex(_ colorIndex: ColorIndex) -> NSColor {
+			switch colorIndex {
 			case .none:
 				return NSColor.clear
 			case .grey:
@@ -306,7 +367,7 @@ extension DSFFinderLabels {
 				self.color(for: .green)!,
 				self.color(for: .yellow)!,
 				self.color(for: .orange)!,
-				self.color(for: .red)!
+				self.color(for: .red)!,
 			]
 		}
 
@@ -335,17 +396,17 @@ extension DSFFinderLabels {
 
 public extension URL {
 	/// Returns the finder labels for the current URL
-	public func finderLabels() -> DSFFinderLabels {
+	func finderLabels() -> DSFFinderLabels {
 		return DSFFinderLabels(fileURL: self)
 	}
 
 	/// Set the labels defined by 'finderLabels' to the URL
-	public func setFinderLabels(_ finderLabels: DSFFinderLabels) throws {
+	func setFinderLabels(_ finderLabels: DSFFinderLabels) throws {
 		try finderLabels.update(url: self)
 	}
 
-	public func setFinderLabels(colors: [DSFFinderLabels.ColorIndex] = [], tags: [String] = []) throws {
-//		let labels = DSFFinderLabels(colors: colors, tags: tags)
-//		try labels.update(url: self)
+	func setFinderLabels(colors: [DSFFinderLabels.ColorIndex] = [], tags: [String] = []) throws {
+		let labels = DSFFinderLabels(colors: colors, tags: tags)
+		try labels.update(url: self)
 	}
 }

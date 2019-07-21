@@ -17,10 +17,24 @@ This class (`DSFFinderLabels`) wraps these API calls to make a consistent method
 * Load all tags and colors for a url
 * Handles localization issues
 * Set multiple colors/tags all with a single call
+* Simple convenience UI elements for display
+
+## Simple install
+
+### Minimal file install
+
+Add `DSFFinderLabels.swift` to your project. 
+
+Additionally, if you need Objective-C support also add `DSFFinderLabels+objc.swift`
+
+### Cocoapods
+Add
+
+`pod 'DSFFinderLabels', :git => 'https://github.com/dagronf/DSFFinderLabels'` 
+  
+to your Podfile
 
 ## Simple usage
-
-Add `DSFFinderLabels.swift` to your project.  Additionally, if you need Objective-C support also add `DSFFinderLabels+objc.swift`
 
 There are some tests which show the usage as well
 
@@ -28,15 +42,16 @@ There are some tests which show the usage as well
 
 #### Swift
 
-```
+```swift
 let labels = DSFFinderLabels()
 
 // Add some colors
-labels.colors.insert(.blue)
-labels.colors.insert(.green)
+labels.set(colors: [.blue, .green])
+labels += .green
 
 // Add a tag
-labels.tags.insert("Work Related")
+labels.set(tags: ["Work Related"])
+labels += "Client"
 
 // And update some files label(s) and color(s)
 do {
@@ -53,7 +68,7 @@ catch {
 
 #### Objective-C
 
-```
+```objective-c
 NSURL* fileUrl = ...
 DSFFinderLabels* labels = [fileUrl finderLabels];
 NSSet<NSString*>* tags = [labels getTags];
@@ -70,7 +85,7 @@ NSError* error = nil;
 
 ### Add a color and tag to a file
 
-```
+```swift
 let url = URL(string: "file:///Users/blah/Desktop/file.txt")!
 
 let labels = url.finderLabels()
@@ -92,7 +107,7 @@ catch {
 
 ### Retrieve finder standard colors and their indexes
 
-```
+```swift
 let colors = DSFFinderLabels.FinderColors
 
 // colors.colors[0] = { .none, "None", <none color> }
@@ -107,6 +122,7 @@ let colors = DSFFinderLabels.FinderColors
 
 ## License
 
+```
 MIT License
 
 Copyright (c) 2019 Darren Ford
@@ -128,3 +144,4 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+```

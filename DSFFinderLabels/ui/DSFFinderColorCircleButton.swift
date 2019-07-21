@@ -37,9 +37,9 @@ class DSFFinderColorCircleButton: NSButton {
 	/// The stroke color for the circle.
 	var strokeColor: CGColor {
 		if let _ = self.drawColor {
-			return NSColor.separatorColor.cgColor.copy(alpha: 0.2)!
+			return NSColor.quaternaryLabelColor.cgColor.copy(alpha: 0.2)!
 		}
-		return NSColor.separatorColor.cgColor
+		return NSColor.quaternaryLabelColor.cgColor
 	}
 
 	/// Listener for state changes

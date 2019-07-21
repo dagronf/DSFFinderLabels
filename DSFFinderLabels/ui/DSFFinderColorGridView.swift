@@ -15,7 +15,8 @@ public protocol DSFFinderColorGridViewProtocol {
 }
 
 /// A view class for displaying and selecting finder colors
-open class DSFFinderColorGridView: NSView {
+
+@objc open class DSFFinderColorGridView: NSView {
 	/// The Finder's colors
 	private static let FinderColors = DSFFinderLabels.FinderColors.colors
 
@@ -45,8 +46,9 @@ open class DSFFinderColorGridView: NSView {
 	}
 
 	private func setup() {
-
+		self.translatesAutoresizingMaskIntoConstraints = false
 		self.colorButtons = self.finderColorButtons()
+		self.grid.translatesAutoresizingMaskIntoConstraints = false
 		self.grid.addRow(with: self.colorButtons)
 		self.grid.columnSpacing = 0
 		self.grid.setContentCompressionResistancePriority(.required, for: .horizontal)
@@ -55,17 +57,24 @@ open class DSFFinderColorGridView: NSView {
 		self.grid.setContentHuggingPriority(.required, for: .vertical)
 
 		self.addSubview(self.grid)
-		let vc = self.grab
+		self.addConstraints([
+			NSLayoutConstraint(item: self.grid, attribute: .left, relatedBy: .equal, toItem: self, attribute: .left, multiplier: 1, constant: 0),
+			NSLayoutConstraint(item: self.grid, attribute: .right, relatedBy: .equal, toItem: self, attribute: .right, multiplier: 1, constant: 0),
+			NSLayoutConstraint(item: self.grid, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1, constant: 0),
+			NSLayoutConstraint(item: self.grid, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1, constant: 0),
 
-		vc.left(view: self.grid, related: .equal, constant: 0.0)
-		vc.top(view: self.grid, related: .equal, constant: 0.0)
-		vc.bottom(view: self.grid, related: .equal, constant: 0.0)
-		vc.right(view: self.grid, related: .greaterThanOrEqual, constant: 0.0)
-
-		/// Set the height from the first button height
-		vc.height(self.colorButtons[0].frame.height, relation: .equal)
+			NSLayoutConstraint(item: self, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: self.colorButtons[0].frame.height)
+		])
 
 		self.needsLayout = true
+	}
+
+	open override func prepareForInterfaceBuilder() {
+		self.setup()
+		self.reset()
+		self.needsLayout = true
+
+		//super.prepareForInterfaceBuilder()
 	}
 
 	/// Unselect all of the colors in the control
@@ -104,8 +113,10 @@ open class DSFFinderColorGridView: NSView {
 			button.bezelStyle = .shadowlessSquare
 			button.setButtonType(.toggle)
 
-			button.grab.width(buttonSize, relation: .equal)
-			button.grab.height(buttonSize, relation: .equal)
+			button.addConstraints([
+				NSLayoutConstraint(item: button, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: buttonSize),
+				NSLayoutConstraint(item: button, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: buttonSize)
+			])
 
 			if color.index != .none {
 				button.drawColor = color.color

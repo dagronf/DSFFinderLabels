@@ -8,11 +8,8 @@
 
 import Cocoa
 
-public extension DSFFinderLabels
-{
-	public class Search
-	{
-
+@objc public extension DSFFinderLabels {
+	@objc(DSFFinderLabelsSearch) class Search: NSObject {
 		/// Create and asynchronously search for all items matching the specified tags
 		///
 		/// - Parameters:
@@ -29,11 +26,10 @@ public extension DSFFinderLabels
 		private let exactMatch: Bool
 		private let metadataSearch = NSMetadataQuery()
 		private let searchTags: Set<String>
-		private let completion: ((Set<URL>) -> Void)
+		private let completion: (Set<URL>) -> Void
 
-		private init() {
-			self.searchTags = Set([])
-			fatalError("Shouldn't be called")
+		private override init() {
+			fatalError()
 		}
 
 		private init(searchTags: Set<String>, exactMatch: Bool = true, completion: @escaping ((Set<URL>) -> Void)) {
@@ -51,11 +47,12 @@ public extension DSFFinderLabels
 			NotificationCenter.default.addObserver(
 				forName: NSNotification.Name.NSMetadataQueryDidFinishGathering,
 				object: self.metadataSearch,
-				queue: nil) { [weak self] (notification) in
+				queue: nil
+			) { [weak self] _ in
 				self?.complete()
 			}
 
-			let pred = NSPredicate.init(format: labels.queryString())
+			let pred = NSPredicate(format: labels.queryString())
 			self.metadataSearch.predicate = pred
 			self.metadataSearch.start()
 		}
@@ -68,8 +65,7 @@ public extension DSFFinderLabels
 			self.stop()
 
 			var results = Set<URL>()
-			for count in 0 ..< self.metadataSearch.resultCount
-			{
+			for count in 0 ..< self.metadataSearch.resultCount {
 				guard let result = self.metadataSearch.result(at: count) as? NSMetadataItem else {
 					continue
 				}
@@ -86,32 +82,28 @@ public extension DSFFinderLabels
 		}
 	}
 
-
 	/// Find all files in scope that match the tags
 	///
 	/// - Parameters:
 	///   - exactMatch: If true, matches only when ALL tags are present, else matches when ANY of the tags match
 	///   - completion: called with the search results
 	/// - Returns: search object
-	public func findAllMatching(exactMatch: Bool = true, completion: @escaping ((Set<URL>) -> Void)) -> Search?
-	{
+	func findAllMatching(exactMatch: Bool = true, completion: @escaping ((Set<URL>) -> Void)) -> Search? {
 		let tags = self.allLabels()
-		if tags.count == 0
-		{
+		if tags.count == 0 {
 			return nil
 		}
 
 		return Search.search(for: self, exactMatch: exactMatch, completion: completion)
 	}
 
-
 	/// Return all the tags that are current in use in the user's default search scope
-	static public func AllActiveTags() -> Set<String> {
+	static func AllActiveTags() -> Set<String> {
 		let query = MDQueryCreate(kCFAllocatorDefault, "kMDItemUserTags == *" as CFString, nil, nil)
 		MDQueryExecute(query, CFOptionFlags(kMDQuerySynchronous.rawValue))
 
 		var result = Set<String>()
-		let count = MDQueryGetResultCount(query);
+		let count = MDQueryGetResultCount(query)
 		for i in 0 ..< count {
 			let rawPtr = MDQueryGetResultAtIndex(query, i)
 			let item = Unmanaged<MDItem>.fromOpaque(rawPtr!).takeUnretainedValue()
@@ -123,22 +115,17 @@ public extension DSFFinderLabels
 		return result.filter { DSFFinderLabels.FinderColors.color(labelled: $0) == nil }
 	}
 
-
-	private func allLabels() -> Set<String>
-	{
+	private func allLabels() -> Set<String> {
 		var arr = Set<String>()
-		for colorIndex in self.colors
-		{
+		for colorIndex in self.colors {
 			let color = DSFFinderLabels.FinderColors.color(for: colorIndex)
 			arr.insert(color!.label)
 		}
 		return arr.union(self.tags)
 	}
 
-	private func queryString() -> String
-	{
+	private func queryString() -> String {
 		let arr = self.allLabels().map { "kMDItemUserTags = '\($0)'" }
 		return "(" + (arr as NSArray).componentsJoined(by: " && ") + ")"
 	}
-
 }
