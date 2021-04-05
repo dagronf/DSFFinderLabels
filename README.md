@@ -21,13 +21,8 @@ This class (`DSFFinderLabels`) wraps these API calls to make a consistent method
 
 ## Simple install
 
-### Minimal file install
-
-Add `DSFFinderLabels.swift` to your project. 
-
-Additionally, if you need Objective-C support also add `DSFFinderLabels+objc.swift`
-
 ### Cocoapods
+
 Add
 
 `pod 'DSFFinderLabels', :git => 'https://github.com/dagronf/DSFFinderLabels'` 
@@ -45,15 +40,13 @@ There are some tests which show the usage as well
 ```swift
 let labels = DSFFinderLabels()
 
-// Add some colors
-labels.set(colors: [.blue, .green])
-labels += .green
+// Set some colors
+labels.set([.blue, .green])
 
 // Add a tag
-labels.set(tags: ["Work Related"])
-labels += "Client"
+labels.set(["Work Related"])
 
-// And update some files label(s) and color(s)
+// And update some files with the new labels
 do {
 	let url = URL(string: "file:///Users/blah/Desktop/file.txt")!
 	let url2 = URL(string: "file:///Users/blah/Desktop/file2.txt")!
@@ -89,20 +82,11 @@ NSError* error = nil;
 let url = URL(string: "file:///Users/blah/Desktop/file.txt")!
 
 let labels = url.finderLabels()
-
-// Add a new color
-labels.colors.insert(.red)
-
-// Add a new tag
-labels.tags.insert("Completed")
+labels.insert(.red)         // Add a new color to the existing colors
+labels.insert("Completed")  // Add a new tag to the existing tags
 
 // And update the file and some others with the new label(s) and color(s)
-do {
-   try url.setFinderLabels(labels)
-}
-catch {
-   print(error)
-}
+try url.setFinderLabels(labels)
 ```
 
 ### Retrieve finder standard colors and their indexes
@@ -122,10 +106,12 @@ let colors = DSFFinderLabels.FinderColors
 
 ## License
 
+MIT. Use it and abuse it for anything you want, just attribute my work. Let me know if you do use it somewhere, I'd love to hear about it!
+
 ```
 MIT License
 
-Copyright (c) 2019 Darren Ford
+Copyright (c) 2021 Darren Ford
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

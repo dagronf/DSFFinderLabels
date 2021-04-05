@@ -12,39 +12,76 @@ import DSFFinderLabels
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
+	@IBOutlet var window: NSWindow!
+	@IBOutlet var selectedPath: NSPathControl!
 
-	@IBOutlet weak var window: NSWindow!
-	@IBOutlet weak var selectedPath: NSPathControl!
+	@IBOutlet var finderColorButtons: DSFFinderColorGridView!
 
-	@IBOutlet weak var finderColorButtons: DSFFinderColorGridView!
-
-	@IBOutlet weak var finderTags: DSFFinderTagsField!
+	@IBOutlet var finderTags: DSFFinderTagsField!
 
 	private var activeSearch: DSFFinderLabels.Search?
+	private var activeSearches: [DSFFinderLabels.Search] = []
 
-
-	func applicationDidFinishLaunching(_ aNotification: Notification) {
+	func applicationDidFinishLaunching(_: Notification) {
 		self.selectedPath.url = nil
+
+//		let t = DSFFinderLabels.AllActiveTags()
+//		Swift.print(t)
+//
+//		let e = DSFFinderLabels.urlsContaining(DSFFinderLabels(colors: [.green]))
+//		Swift.print(e)
+//
+//		let c = DSFFinderLabels.FinderColors
+//		Swift.print(c)
+//
+//		let fl = DSFFinderLabels(colors: [.green], tags: [])
+//		let d = DSFFinderLabels.urlsContaining(fl)
+//		Swift.print(d)
+//
+//		let fl2 = DSFFinderLabels(colors: [.green], tags: ["cat"])
+//		let d2 = DSFFinderLabels.urlsContaining(fl2, exactMatch: true)
+//		Swift.print(d2)
+
+
+
+//		let url = URL(fileURLWithPath: "/Users/dford/Desktop/Untitled.rtf")
+//		try? url.addFinderColor(.blue)
+
+
+//		t.forEach { label in
+//			let s = DSFFinderLabels.Search.search(for: DSFFinderLabels(colors: [.green], tags: [label]), exactMatch: false) { urls in
+//				Swift.print("*** \(label): \(urls)")
+//			}
+//
+//			activeSearches.append(s)
+//		}
+
+//		Swift.print(NSWorkspace.shared.fileLabels)
+//
+//		NotificationCenter.default.addObserver(
+//			forName: NSWorkspace.didChangeFileLabelsNotification,
+//			object: NSWorkspace.shared,
+//			queue: .main) { (notification) in
+//			Swift.print("file labels changed!")
+//		}
+
 	}
 
-	func applicationWillTerminate(_ aNotification: Notification) {
+	func applicationWillTerminate(_: Notification) {
 		// Insert code here to tear down your application
 	}
 
-	@IBAction func loadURL(_ sender: Any)
-	{
+	@IBAction func loadURL(_: Any) {
 		let openPanel = NSOpenPanel()
 
 		openPanel.begin { (result) -> Void in
-			if result == NSApplication.ModalResponse.OK
-			{
-				_ = self.loaded(url: openPanel.url!)
+			if result == NSApplication.ModalResponse.OK {
+				self.loaded(url: openPanel.url!)
 			}
 		}
 	}
 
-	func loaded(url: URL)
-	{
+	func loaded(url: URL) {
 		self.selectedPath.url = url
 		let labels = url.finderLabels()
 
@@ -53,13 +90,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		self.finderTags.finderTags = Array(labels.tags)
 	}
 
-	@IBAction func reset(_ sender: Any)
-	{
+	@IBAction func reset(_: Any) {
 		self.finderColorButtons.reset()
 	}
 
-	@IBAction func findMatching(_ sender: Any)
-	{
+	@IBAction func findMatching(_: Any) {
 		let updated = DSFFinderLabels()
 
 		let selected = self.finderColorButtons.selectedColors
@@ -77,10 +112,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 //		print(urls)
 	}
 
-	@IBAction func update(_ sender: Any)
-	{
-		guard let url = self.selectedPath.url else
-		{
+	@IBAction func update(_: Any) {
+		guard let url = self.selectedPath.url else {
 			return
 		}
 
@@ -95,6 +128,4 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		// Try to update
 		try? url.setFinderLabels(updated)
 	}
-
 }
-

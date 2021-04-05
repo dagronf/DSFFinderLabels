@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,18 +12,6 @@
 		2332CDB3220D428E00D6ABE4 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2332CDB1220D428E00D6ABE4 /* MainMenu.xib */; };
 		83A9E87FFF7A9BB1B8CD1EEA /* Pods_DSFFinderLabelsDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0638B075F98AF5D8375F3F3A /* Pods_DSFFinderLabelsDemo.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		234A4055220E943E00E84403 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0638B075F98AF5D8375F3F3A /* Pods_DSFFinderLabelsDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DSFFinderLabelsDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -34,7 +22,6 @@
 		2332CDB2220D428E00D6ABE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		2332CDB4220D428E00D6ABE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2332CDB5220D428E00D6ABE4 /* DSFFinderLabelsDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DSFFinderLabelsDemo.entitlements; sourceTree = "<group>"; };
-		234A4041220E942700E84403 /* Finder Tagger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Finder Tagger.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		710C2A1C9508BBAE3D0041B3 /* Pods-DSFFinderLabelsDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DSFFinderLabelsDemo.debug.xcconfig"; path = "Target Support Files/Pods-DSFFinderLabelsDemo/Pods-DSFFinderLabelsDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		C683723160C38B2A1B02AF40 /* Pods-DSFFinderLabelsDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DSFFinderLabelsDemo.release.xcconfig"; path = "Target Support Files/Pods-DSFFinderLabelsDemo/Pods-DSFFinderLabelsDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -45,13 +32,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				83A9E87FFF7A9BB1B8CD1EEA /* Pods_DSFFinderLabelsDemo.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		234A403E220E942700E84403 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,7 +53,6 @@
 			isa = PBXGroup;
 			children = (
 				2332CDAB220D428D00D6ABE4 /* DSFFinderLabelsDemo.app */,
-				234A4041220E942700E84403 /* Finder Tagger.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -145,24 +124,6 @@
 			productReference = 2332CDAB220D428D00D6ABE4 /* DSFFinderLabelsDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		234A4040220E942700E84403 /* Finder Tagger */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 234A4051220E942700E84403 /* Build configuration list for PBXNativeTarget "Finder Tagger" */;
-			buildPhases = (
-				234A403D220E942700E84403 /* Sources */,
-				234A403E220E942700E84403 /* Frameworks */,
-				234A403F220E942700E84403 /* Resources */,
-				234A4055220E943E00E84403 /* CopyFiles */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Finder Tagger";
-			productName = "Finder Tagger";
-			productReference = 234A4041220E942700E84403 /* Finder Tagger.app */;
-			productType = "com.apple.product-type.application";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -184,14 +145,6 @@
 					234A4039220E7D5B00E84403 = {
 						CreatedOnToolsVersion = 10.1;
 					};
-					234A4040220E942700E84403 = {
-						CreatedOnToolsVersion = 10.1;
-						SystemCapabilities = {
-							com.apple.Sandbox = {
-								enabled = 0;
-							};
-						};
-					};
 				};
 			};
 			buildConfigurationList = 2332CD85220D420B00D6ABE4 /* Build configuration list for PBXProject "DSFFinderLabels" */;
@@ -209,7 +162,6 @@
 			targets = (
 				2332CDAA220D428D00D6ABE4 /* DSFFinderLabelsDemo */,
 				234A4039220E7D5B00E84403 /* Generate Documentation */,
-				234A4040220E942700E84403 /* Finder Tagger */,
 			);
 		};
 /* End PBXProject section */
@@ -221,13 +173,6 @@
 			files = (
 				2332CDB0220D428E00D6ABE4 /* Assets.xcassets in Resources */,
 				2332CDB3220D428E00D6ABE4 /* MainMenu.xib in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		234A403F220E942700E84403 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,13 +226,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2332CDAE220D428E00D6ABE4 /* AppDelegate.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		234A403D220E942700E84403 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -491,42 +429,6 @@
 			};
 			name = Release;
 		};
-		234A4052220E942700E84403 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 3L6RK3LGGW;
-				INFOPLIST_FILE = "Finder Tagger/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.darrenford.Finder-Tagger";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-			};
-			name = Debug;
-		};
-		234A4053220E942700E84403 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 3L6RK3LGGW;
-				INFOPLIST_FILE = "Finder Tagger/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.darrenford.Finder-Tagger";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -553,15 +455,6 @@
 			buildConfigurations = (
 				234A403B220E7D5B00E84403 /* Debug */,
 				234A403C220E7D5B00E84403 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		234A4051220E942700E84403 /* Build configuration list for PBXNativeTarget "Finder Tagger" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				234A4052220E942700E84403 /* Debug */,
-				234A4053220E942700E84403 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

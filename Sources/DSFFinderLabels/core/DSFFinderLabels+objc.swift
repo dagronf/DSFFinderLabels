@@ -36,18 +36,18 @@ import Cocoa
 @objc public extension DSFFinderLabels {
 	// MARK: (Obj-C) Tags access and update
 
-	/// Add the specified tag to the set of tags
-	func addTag(tag: String) {
+	/// Insert the tag string
+	func insertTag(tag: String) {
 		self.tags.insert(tag)
 	}
 
-	/// Remove the specified tag from the set of tags
+	/// Remove the tag
 	func removeTag(tag: String) {
 		self.tags.remove(tag)
 	}
 
 	/// Add the specified tags to the set of tags
-	func addTags(tags: Set<String>) {
+	func insertTags(tags: Set<String>) {
 		self.tags.formUnion(tags)
 	}
 

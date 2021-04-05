@@ -15,7 +15,7 @@ public protocol DSFFinderColorGridViewProtocol {
 }
 
 /// A view class for displaying and selecting finder colors
-@available(OSX 10.11, *)
+@available(macOS 10.11, *)
 @IBDesignable public class DSFFinderColorGridView: NSView {
 
 	/// Delegate for notifying back when selections change
@@ -86,6 +86,7 @@ public protocol DSFFinderColorGridViewProtocol {
 	}()
 }
 
+@available(macOS 10.11, *)
 private extension DSFFinderColorGridView {
 
 	@objc private func selectedButton(_ sender: DSFFinderColorCircleButton) {

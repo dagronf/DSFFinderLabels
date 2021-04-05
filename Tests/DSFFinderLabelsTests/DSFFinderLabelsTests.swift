@@ -110,8 +110,8 @@ class DSFFinderLabelsTests: XCTestCase {
 		}
 
 		let labels = DSFFinderLabels()
-		labels.set(colors: [.green, .orange])
-		labels.set(tags: ["Work Related"])
+		labels.set([.green, .orange])
+		labels.set("Work Related")
 
 		guard let _ = try? labels.update(urls: [file1.fileURL, file2.fileURL, file3.fileURL]) else {
 			fatalError("Could not update temporary files")
@@ -130,21 +130,36 @@ class DSFFinderLabelsTests: XCTestCase {
 
 	func testOperators() {
 		let labels = DSFFinderLabels()
-		labels += .blue
-		labels += .red
+		labels.insert([.blue, .red])
 
-		XCTAssertTrue(labels.colors.contains(.blue))
-		XCTAssertTrue(labels.colors.contains(.red))
+		XCTAssertTrue(labels.contains(color: .blue))
+		XCTAssertTrue(labels.contains(color: .red))
 
-		labels -= .blue
+		labels.remove(.blue)
 		XCTAssertFalse(labels.colors.contains(.blue))
 		XCTAssertTrue(labels.colors.contains(.red))
 
-		labels -= .blue
+		labels.remove(.blue)
 		XCTAssertFalse(labels.colors.contains(.blue))
 
-		labels += "Caterpillar"
+		labels.insert("Caterpillar")
 		XCTAssertTrue(labels.tags.contains("Caterpillar"))
+	}
+
+	func testSetUnset() {
+		let x = DSFFinderLabels()
+
+		x.insert([.blue, .grey])
+		XCTAssertEqual(x.colors, Set([.blue, .grey]))
+
+		x.insert([.red, .blue])
+		XCTAssertEqual(x.colors, Set([.blue, .grey, .red]))
+
+		x.remove([.red, .blue])
+		XCTAssertEqual(x.colors, Set([.grey]))
+
+		x.remove([.red, .blue])
+		XCTAssertEqual(x.colors, Set([.grey]))
 	}
 
 //	func testFind() {

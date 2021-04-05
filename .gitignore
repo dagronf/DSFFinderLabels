@@ -1,3 +1,6 @@
 Demos/DSFFinderLabels.xcodeproj/xcuserdata
 Demos/Pods
 docs
+.build
+.swiftpm
+Demos/DSFFinderLabels.xcworkspace/xcuserdata
