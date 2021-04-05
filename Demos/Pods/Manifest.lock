@@ -1,0 +1,16 @@
+PODS:
+  - DSFFinderLabels (1.0)
+
+DEPENDENCIES:
+  - DSFFinderLabels (from `../`)
+
+EXTERNAL SOURCES:
+  DSFFinderLabels:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  DSFFinderLabels: 3bd2fedbd121a0d2909fb1af68aed3c9e122a93b
+
+PODFILE CHECKSUM: 397aae6199c89634faeb30dcc64e0c9002eb4882
+
+COCOAPODS: 1.9.1

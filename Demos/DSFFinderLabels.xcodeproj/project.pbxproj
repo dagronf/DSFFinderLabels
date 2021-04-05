@@ -1,0 +1,572 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2332CDAE220D428E00D6ABE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2332CDAD220D428E00D6ABE4 /* AppDelegate.swift */; };
+		2332CDB0220D428E00D6ABE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2332CDAF220D428E00D6ABE4 /* Assets.xcassets */; };
+		2332CDB3220D428E00D6ABE4 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2332CDB1220D428E00D6ABE4 /* MainMenu.xib */; };
+		83A9E87FFF7A9BB1B8CD1EEA /* Pods_DSFFinderLabelsDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0638B075F98AF5D8375F3F3A /* Pods_DSFFinderLabelsDemo.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		234A4055220E943E00E84403 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0638B075F98AF5D8375F3F3A /* Pods_DSFFinderLabelsDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DSFFinderLabelsDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2323F5D323C6D90B003A516F /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		2332CDAB220D428D00D6ABE4 /* DSFFinderLabelsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DSFFinderLabelsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2332CDAD220D428E00D6ABE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2332CDAF220D428E00D6ABE4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2332CDB2220D428E00D6ABE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		2332CDB4220D428E00D6ABE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2332CDB5220D428E00D6ABE4 /* DSFFinderLabelsDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DSFFinderLabelsDemo.entitlements; sourceTree = "<group>"; };
+		234A4041220E942700E84403 /* Finder Tagger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Finder Tagger.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		710C2A1C9508BBAE3D0041B3 /* Pods-DSFFinderLabelsDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DSFFinderLabelsDemo.debug.xcconfig"; path = "Target Support Files/Pods-DSFFinderLabelsDemo/Pods-DSFFinderLabelsDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		C683723160C38B2A1B02AF40 /* Pods-DSFFinderLabelsDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DSFFinderLabelsDemo.release.xcconfig"; path = "Target Support Files/Pods-DSFFinderLabelsDemo/Pods-DSFFinderLabelsDemo.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2332CDA8220D428D00D6ABE4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83A9E87FFF7A9BB1B8CD1EEA /* Pods_DSFFinderLabelsDemo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		234A403E220E942700E84403 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2332CD81220D420B00D6ABE4 = {
+			isa = PBXGroup;
+			children = (
+				2323F5D323C6D90B003A516F /* Podfile */,
+				2332CDAC220D428E00D6ABE4 /* DSFFinderLabelsDemo */,
+				2332CD8C220D420B00D6ABE4 /* Products */,
+				2332CDB9220D42A000D6ABE4 /* Frameworks */,
+				25C4AB182967FFAFE64F4DDD /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		2332CD8C220D420B00D6ABE4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2332CDAB220D428D00D6ABE4 /* DSFFinderLabelsDemo.app */,
+				234A4041220E942700E84403 /* Finder Tagger.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2332CDAC220D428E00D6ABE4 /* DSFFinderLabelsDemo */ = {
+			isa = PBXGroup;
+			children = (
+				2332CDAD220D428E00D6ABE4 /* AppDelegate.swift */,
+				2332CDAF220D428E00D6ABE4 /* Assets.xcassets */,
+				2332CDB1220D428E00D6ABE4 /* MainMenu.xib */,
+				2332CDB4220D428E00D6ABE4 /* Info.plist */,
+				2332CDB5220D428E00D6ABE4 /* DSFFinderLabelsDemo.entitlements */,
+			);
+			path = DSFFinderLabelsDemo;
+			sourceTree = "<group>";
+		};
+		2332CDB9220D42A000D6ABE4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0638B075F98AF5D8375F3F3A /* Pods_DSFFinderLabelsDemo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		25C4AB182967FFAFE64F4DDD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				710C2A1C9508BBAE3D0041B3 /* Pods-DSFFinderLabelsDemo.debug.xcconfig */,
+				C683723160C38B2A1B02AF40 /* Pods-DSFFinderLabelsDemo.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXLegacyTarget section */
+		234A4039220E7D5B00E84403 /* Generate Documentation */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(ACTION)";
+			buildConfigurationList = 234A403A220E7D5B00E84403 /* Build configuration list for PBXLegacyTarget "Generate Documentation" */;
+			buildPhases = (
+			);
+			buildToolPath = jazzy;
+			dependencies = (
+			);
+			name = "Generate Documentation";
+			passBuildSettingsInEnvironment = 1;
+			productName = "Generate Documentation";
+		};
+/* End PBXLegacyTarget section */
+
+/* Begin PBXNativeTarget section */
+		2332CDAA220D428D00D6ABE4 /* DSFFinderLabelsDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2332CDB6220D428E00D6ABE4 /* Build configuration list for PBXNativeTarget "DSFFinderLabelsDemo" */;
+			buildPhases = (
+				2DA960AE7A438A6CB2FFD810 /* [CP] Check Pods Manifest.lock */,
+				2332CDA7220D428D00D6ABE4 /* Sources */,
+				2332CDA8220D428D00D6ABE4 /* Frameworks */,
+				2332CDA9220D428D00D6ABE4 /* Resources */,
+				23D3F660758DEC84A19C9602 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DSFFinderLabelsDemo;
+			productName = DSFFinderLabelsDemo;
+			productReference = 2332CDAB220D428D00D6ABE4 /* DSFFinderLabelsDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		234A4040220E942700E84403 /* Finder Tagger */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 234A4051220E942700E84403 /* Build configuration list for PBXNativeTarget "Finder Tagger" */;
+			buildPhases = (
+				234A403D220E942700E84403 /* Sources */,
+				234A403E220E942700E84403 /* Frameworks */,
+				234A403F220E942700E84403 /* Resources */,
+				234A4055220E943E00E84403 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Finder Tagger";
+			productName = "Finder Tagger";
+			productReference = 234A4041220E942700E84403 /* Finder Tagger.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2332CD82220D420B00D6ABE4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Darren Ford";
+				TargetAttributes = {
+					2332CDAA220D428D00D6ABE4 = {
+						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
+					};
+					234A4039220E7D5B00E84403 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					234A4040220E942700E84403 = {
+						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = 2332CD85220D420B00D6ABE4 /* Build configuration list for PBXProject "DSFFinderLabels" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2332CD81220D420B00D6ABE4;
+			productRefGroup = 2332CD8C220D420B00D6ABE4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2332CDAA220D428D00D6ABE4 /* DSFFinderLabelsDemo */,
+				234A4039220E7D5B00E84403 /* Generate Documentation */,
+				234A4040220E942700E84403 /* Finder Tagger */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2332CDA9220D428D00D6ABE4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2332CDB0220D428E00D6ABE4 /* Assets.xcassets in Resources */,
+				2332CDB3220D428E00D6ABE4 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		234A403F220E942700E84403 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		23D3F660758DEC84A19C9602 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DSFFinderLabelsDemo/Pods-DSFFinderLabelsDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DSFFinderLabelsDemo/Pods-DSFFinderLabelsDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DSFFinderLabelsDemo/Pods-DSFFinderLabelsDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2DA960AE7A438A6CB2FFD810 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DSFFinderLabelsDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2332CDA7220D428D00D6ABE4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2332CDAE220D428E00D6ABE4 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		234A403D220E942700E84403 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		2332CDB1220D428E00D6ABE4 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2332CDB2220D428E00D6ABE4 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2332CD9D220D420B00D6ABE4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		2332CD9E220D420B00D6ABE4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		2332CDB7220D428E00D6ABE4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 710C2A1C9508BBAE3D0041B3 /* Pods-DSFFinderLabelsDemo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 3L6RK3LGGW;
+				INFOPLIST_FILE = DSFFinderLabelsDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.darrenford.DSFFinderLabelsDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Debug;
+		};
+		2332CDB8220D428E00D6ABE4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C683723160C38B2A1B02AF40 /* Pods-DSFFinderLabelsDemo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 3L6RK3LGGW;
+				INFOPLIST_FILE = DSFFinderLabelsDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.darrenford.DSFFinderLabelsDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Release;
+		};
+		234A403B220E7D5B00E84403 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEBUGGING_SYMBOLS = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 3L6RK3LGGW;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		234A403C220E7D5B00E84403 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 3L6RK3LGGW;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		234A4052220E942700E84403 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 3L6RK3LGGW;
+				INFOPLIST_FILE = "Finder Tagger/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.darrenford.Finder-Tagger";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Debug;
+		};
+		234A4053220E942700E84403 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 3L6RK3LGGW;
+				INFOPLIST_FILE = "Finder Tagger/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.darrenford.Finder-Tagger";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2332CD85220D420B00D6ABE4 /* Build configuration list for PBXProject "DSFFinderLabels" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2332CD9D220D420B00D6ABE4 /* Debug */,
+				2332CD9E220D420B00D6ABE4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2332CDB6220D428E00D6ABE4 /* Build configuration list for PBXNativeTarget "DSFFinderLabelsDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2332CDB7220D428E00D6ABE4 /* Debug */,
+				2332CDB8220D428E00D6ABE4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		234A403A220E7D5B00E84403 /* Build configuration list for PBXLegacyTarget "Generate Documentation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				234A403B220E7D5B00E84403 /* Debug */,
+				234A403C220E7D5B00E84403 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		234A4051220E942700E84403 /* Build configuration list for PBXNativeTarget "Finder Tagger" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				234A4052220E942700E84403 /* Debug */,
+				234A4053220E942700E84403 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2332CD82220D420B00D6ABE4 /* Project object */;
+}

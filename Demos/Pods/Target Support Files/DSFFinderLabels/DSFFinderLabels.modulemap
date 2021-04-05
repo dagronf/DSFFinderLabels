@@ -1,0 +1,6 @@
+framework module DSFFinderLabels {
+  umbrella header "DSFFinderLabels-umbrella.h"
+
+  export *
+  module * { export * }
+}

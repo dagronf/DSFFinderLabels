@@ -1,0 +1,29 @@
+{
+  "name": "DSFFinderLabels",
+  "version": "1.0",
+  "summary": "Finder Label support class for Swift and Objective-C",
+  "description": "Finder Label support class for Swift and Objective-C",
+  "homepage": "https://github.com/dagronf/DSFFinderLabels",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Darren Ford": "dford_au-reg@yahoo.com"
+  },
+  "social_media_url": "",
+  "platforms": {
+    "osx": "10.11"
+  },
+  "source": {
+    "git": ".git",
+    "tag": "1.0"
+  },
+  "source_files": [
+    "Sources/DSFFinderLabels/core/*.swift",
+    "Sources/DSFFinderLabels/ui/*.swift"
+  ],
+  "frameworks": "Cocoa",
+  "swift_versions": "5.0",
+  "swift_version": "5.0"
+}

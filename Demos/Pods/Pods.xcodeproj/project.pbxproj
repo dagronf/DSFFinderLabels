@@ -1,0 +1,666 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		072A173CC646443D0A56C1818E974DDB /* DSFFinderTagsField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E684BD90F4B59616A4894B9760ABEA01 /* DSFFinderTagsField.swift */; };
+		07C4D1CE4FD96DD0377EAEBC821960F3 /* DSFFinderLabels+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936EC0714FC0DA80759FC98F1570C2AE /* DSFFinderLabels+Search.swift */; };
+		1923E4A4EAA2F830D64E703FDEF4388E /* DSFFinderLabels-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DD241B58E7C403F43A6EABC8B554FED4 /* DSFFinderLabels-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48CFBA16A28BE47BB1F481BF72E35055 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F940C819049CFF8741C0F5E3E075E607 /* Cocoa.framework */; };
+		4A98AFE77B733182B8325044F1DB9499 /* DSFFinderLabels-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D86C774F20BB659B6980D6EEF89D28 /* DSFFinderLabels-dummy.m */; };
+		56102E2B677878173FB1433569F82039 /* DSFFinderColorCircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D0EABF2ECB8645009A9118C331A471 /* DSFFinderColorCircleButton.swift */; };
+		5A25A8331BA3FBAD8237CBDE720C2F26 /* DSFFinderColorGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E047DA14DEFFC6CEA226537CC6684EF7 /* DSFFinderColorGridView.swift */; };
+		8CFAF93EC877360F5A8051A2B419F09E /* Pods-DSFFinderLabelsDemo-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 29508DF350F2034BB956E53430B74F73 /* Pods-DSFFinderLabelsDemo-dummy.m */; };
+		983F9BFA313BDCA6EEE6915A46812126 /* DSFFinderLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BCA67B8B541174D7E31146B6756F03 /* DSFFinderLabels.swift */; };
+		E3FA9C6EB72BDB2772A958F2EB610199 /* Pods-DSFFinderLabelsDemo-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = EA615652A5695B0190B570737357D934 /* Pods-DSFFinderLabelsDemo-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC7FF5CED3703A1B161DDAABC7F930A7 /* DSFFinderLabels+objc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088090051EAA94256EE88403781BA017 /* DSFFinderLabels+objc.swift */; };
+		EDAB554F52DC45930B2C6E20D2A78D79 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F940C819049CFF8741C0F5E3E075E607 /* Cocoa.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		10546FCB105A1C27037FD1DCCE783DF8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 869154C8A56FC0A5F8D59DE0A812427C;
+			remoteInfo = DSFFinderLabels;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		028FF30388AD3A8E3C01DB0E9A359F73 /* Pods-DSFFinderLabelsDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DSFFinderLabelsDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		088090051EAA94256EE88403781BA017 /* DSFFinderLabels+objc.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "DSFFinderLabels+objc.swift"; sourceTree = "<group>"; };
+		09218B49F13201610FC18119E2C3A7AA /* DSFFinderLabels.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = DSFFinderLabels.framework; path = DSFFinderLabels.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0C1358B7851EEDEC3BBEEEC16523489D /* Pods-DSFFinderLabelsDemo-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-DSFFinderLabelsDemo-frameworks.sh"; sourceTree = "<group>"; };
+		115423996DB9E00B1D906236801BE580 /* DSFFinderLabels-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "DSFFinderLabels-Info.plist"; sourceTree = "<group>"; };
+		29508DF350F2034BB956E53430B74F73 /* Pods-DSFFinderLabelsDemo-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-DSFFinderLabelsDemo-dummy.m"; sourceTree = "<group>"; };
+		3CEF2B1021CC3AFB23B29CE81FDDB5F0 /* DSFFinderLabels.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = DSFFinderLabels.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		4D62E96D5AD486C7C9B99BAE9E5D816F /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		4DE134537AF4DD263577CA0ACA5519F6 /* Pods-DSFFinderLabelsDemo-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DSFFinderLabelsDemo-Info.plist"; sourceTree = "<group>"; };
+		68AB81D723874F17008683289BE5F096 /* Pods-DSFFinderLabelsDemo-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-DSFFinderLabelsDemo-acknowledgements.markdown"; sourceTree = "<group>"; };
+		6A1D5C3B1DF61AEA52685541E3C8C90A /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		6FF066D7744351117AEC0BBB73716E21 /* Pods_DSFFinderLabelsDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_DSFFinderLabelsDemo.framework; path = "Pods-DSFFinderLabelsDemo.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7266ACC8A799E893D276F72852A8CE9E /* Pods-DSFFinderLabelsDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DSFFinderLabelsDemo.release.xcconfig"; sourceTree = "<group>"; };
+		73BCA67B8B541174D7E31146B6756F03 /* DSFFinderLabels.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DSFFinderLabels.swift; sourceTree = "<group>"; };
+		91D86C774F20BB659B6980D6EEF89D28 /* DSFFinderLabels-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DSFFinderLabels-dummy.m"; sourceTree = "<group>"; };
+		936EC0714FC0DA80759FC98F1570C2AE /* DSFFinderLabels+Search.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "DSFFinderLabels+Search.swift"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		C0C3859CA1A27C96D0F8770715DAC14C /* DSFFinderLabels-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DSFFinderLabels-prefix.pch"; sourceTree = "<group>"; };
+		C7A4A2E07FD53E09534CF6A9ED8F0E11 /* Pods-DSFFinderLabelsDemo.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-DSFFinderLabelsDemo.modulemap"; sourceTree = "<group>"; };
+		DD241B58E7C403F43A6EABC8B554FED4 /* DSFFinderLabels-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DSFFinderLabels-umbrella.h"; sourceTree = "<group>"; };
+		E047DA14DEFFC6CEA226537CC6684EF7 /* DSFFinderColorGridView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DSFFinderColorGridView.swift; sourceTree = "<group>"; };
+		E3084202DF2BC794B98AE685ADE6B2A7 /* DSFFinderLabels.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DSFFinderLabels.release.xcconfig; sourceTree = "<group>"; };
+		E5D0EABF2ECB8645009A9118C331A471 /* DSFFinderColorCircleButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DSFFinderColorCircleButton.swift; sourceTree = "<group>"; };
+		E684BD90F4B59616A4894B9760ABEA01 /* DSFFinderTagsField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DSFFinderTagsField.swift; sourceTree = "<group>"; };
+		EA615652A5695B0190B570737357D934 /* Pods-DSFFinderLabelsDemo-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-DSFFinderLabelsDemo-umbrella.h"; sourceTree = "<group>"; };
+		F03DB2BBE99A872BDCFA479DD9D2FE30 /* DSFFinderLabels.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = DSFFinderLabels.modulemap; sourceTree = "<group>"; };
+		F3C36DD3E393A8490A0B5964E4575EC9 /* Pods-DSFFinderLabelsDemo-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DSFFinderLabelsDemo-acknowledgements.plist"; sourceTree = "<group>"; };
+		F940C819049CFF8741C0F5E3E075E607 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		FFA658221BE848D814E313381EFEA761 /* DSFFinderLabels.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DSFFinderLabels.debug.xcconfig; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		60442EFF901469DA0B795CAE3771E6A6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				48CFBA16A28BE47BB1F481BF72E35055 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84ECC90AF5CC8D8A066CFF6CBDF01A31 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDAB554F52DC45930B2C6E20D2A78D79 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0971ECFBCE30E98E9B34C8A4AE13BF04 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				68A8720DD9BE3B5BC0864FC023A1F407 /* DSFFinderLabels */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		1AB7518FF7DC5A30C4DF395B6772A938 /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				E5D0EABF2ECB8645009A9118C331A471 /* DSFFinderColorCircleButton.swift */,
+				E047DA14DEFFC6CEA226537CC6684EF7 /* DSFFinderColorGridView.swift */,
+				E684BD90F4B59616A4894B9760ABEA01 /* DSFFinderTagsField.swift */,
+			);
+			name = ui;
+			path = Sources/DSFFinderLabels/ui;
+			sourceTree = "<group>";
+		};
+		3A63EDD71973A8F32E63770811E26FA3 /* Pods-DSFFinderLabelsDemo */ = {
+			isa = PBXGroup;
+			children = (
+				C7A4A2E07FD53E09534CF6A9ED8F0E11 /* Pods-DSFFinderLabelsDemo.modulemap */,
+				68AB81D723874F17008683289BE5F096 /* Pods-DSFFinderLabelsDemo-acknowledgements.markdown */,
+				F3C36DD3E393A8490A0B5964E4575EC9 /* Pods-DSFFinderLabelsDemo-acknowledgements.plist */,
+				29508DF350F2034BB956E53430B74F73 /* Pods-DSFFinderLabelsDemo-dummy.m */,
+				0C1358B7851EEDEC3BBEEEC16523489D /* Pods-DSFFinderLabelsDemo-frameworks.sh */,
+				4DE134537AF4DD263577CA0ACA5519F6 /* Pods-DSFFinderLabelsDemo-Info.plist */,
+				EA615652A5695B0190B570737357D934 /* Pods-DSFFinderLabelsDemo-umbrella.h */,
+				028FF30388AD3A8E3C01DB0E9A359F73 /* Pods-DSFFinderLabelsDemo.debug.xcconfig */,
+				7266ACC8A799E893D276F72852A8CE9E /* Pods-DSFFinderLabelsDemo.release.xcconfig */,
+			);
+			name = "Pods-DSFFinderLabelsDemo";
+			path = "Target Support Files/Pods-DSFFinderLabelsDemo";
+			sourceTree = "<group>";
+		};
+		4EDC150C386D018BB032AC5DB6B2870F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				09218B49F13201610FC18119E2C3A7AA /* DSFFinderLabels.framework */,
+				6FF066D7744351117AEC0BBB73716E21 /* Pods_DSFFinderLabelsDemo.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		68A8720DD9BE3B5BC0864FC023A1F407 /* DSFFinderLabels */ = {
+			isa = PBXGroup;
+			children = (
+				AF337EB900E4331608D5743D3524C86A /* core */,
+				6CF11EA6D62ECE276A82126DDD5AF8B6 /* Pod */,
+				967FC68A3E037D3BC5136331F329575E /* Support Files */,
+				1AB7518FF7DC5A30C4DF395B6772A938 /* ui */,
+			);
+			name = DSFFinderLabels;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		6CF11EA6D62ECE276A82126DDD5AF8B6 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				3CEF2B1021CC3AFB23B29CE81FDDB5F0 /* DSFFinderLabels.podspec */,
+				6A1D5C3B1DF61AEA52685541E3C8C90A /* LICENSE */,
+				4D62E96D5AD486C7C9B99BAE9E5D816F /* README.md */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		967FC68A3E037D3BC5136331F329575E /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				F03DB2BBE99A872BDCFA479DD9D2FE30 /* DSFFinderLabels.modulemap */,
+				91D86C774F20BB659B6980D6EEF89D28 /* DSFFinderLabels-dummy.m */,
+				115423996DB9E00B1D906236801BE580 /* DSFFinderLabels-Info.plist */,
+				C0C3859CA1A27C96D0F8770715DAC14C /* DSFFinderLabels-prefix.pch */,
+				DD241B58E7C403F43A6EABC8B554FED4 /* DSFFinderLabels-umbrella.h */,
+				FFA658221BE848D814E313381EFEA761 /* DSFFinderLabels.debug.xcconfig */,
+				E3084202DF2BC794B98AE685ADE6B2A7 /* DSFFinderLabels.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "Demos/Pods/Target Support Files/DSFFinderLabels";
+			sourceTree = "<group>";
+		};
+		AF337EB900E4331608D5743D3524C86A /* core */ = {
+			isa = PBXGroup;
+			children = (
+				73BCA67B8B541174D7E31146B6756F03 /* DSFFinderLabels.swift */,
+				088090051EAA94256EE88403781BA017 /* DSFFinderLabels+objc.swift */,
+				936EC0714FC0DA80759FC98F1570C2AE /* DSFFinderLabels+Search.swift */,
+			);
+			name = core;
+			path = Sources/DSFFinderLabels/core;
+			sourceTree = "<group>";
+		};
+		BFCEDBEDCB4B809A8A3354160BE4CC88 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				3A63EDD71973A8F32E63770811E26FA3 /* Pods-DSFFinderLabelsDemo */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		CBD43E0947D94E318A0ED1350CFF29ED /* OS X */ = {
+			isa = PBXGroup;
+			children = (
+				F940C819049CFF8741C0F5E3E075E607 /* Cocoa.framework */,
+			);
+			name = "OS X";
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				0971ECFBCE30E98E9B34C8A4AE13BF04 /* Development Pods */,
+				E0A1E60606E0BF6E2E10F1F01350DFE8 /* Frameworks */,
+				4EDC150C386D018BB032AC5DB6B2870F /* Products */,
+				BFCEDBEDCB4B809A8A3354160BE4CC88 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		E0A1E60606E0BF6E2E10F1F01350DFE8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CBD43E0947D94E318A0ED1350CFF29ED /* OS X */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		A7ABD4CC76625F72020315E8FC713BF1 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1923E4A4EAA2F830D64E703FDEF4388E /* DSFFinderLabels-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C7BEA4269349F553BED24337CD109E8A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E3FA9C6EB72BDB2772A958F2EB610199 /* Pods-DSFFinderLabelsDemo-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		37976E807736A9AC69DF139C2F8240FB /* Pods-DSFFinderLabelsDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C84A03E5CB32C5E914099072A257DD24 /* Build configuration list for PBXNativeTarget "Pods-DSFFinderLabelsDemo" */;
+			buildPhases = (
+				C7BEA4269349F553BED24337CD109E8A /* Headers */,
+				5BC3FF99798E36B62157678A880DF930 /* Sources */,
+				60442EFF901469DA0B795CAE3771E6A6 /* Frameworks */,
+				15E3D6362EB7ADD0E0026B12688388A3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9B875453C92028AE2371C40BA212DEAC /* PBXTargetDependency */,
+			);
+			name = "Pods-DSFFinderLabelsDemo";
+			productName = "Pods-DSFFinderLabelsDemo";
+			productReference = 6FF066D7744351117AEC0BBB73716E21 /* Pods_DSFFinderLabelsDemo.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		869154C8A56FC0A5F8D59DE0A812427C /* DSFFinderLabels */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 069A82035CA82CCC1276E30B19EE8587 /* Build configuration list for PBXNativeTarget "DSFFinderLabels" */;
+			buildPhases = (
+				A7ABD4CC76625F72020315E8FC713BF1 /* Headers */,
+				583974BD70758482625F6415911E1E40 /* Sources */,
+				84ECC90AF5CC8D8A066CFF6CBDF01A31 /* Frameworks */,
+				2A7C3446C9F82C8AF208754DB429B307 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DSFFinderLabels;
+			productName = DSFFinderLabels;
+			productReference = 09218B49F13201610FC18119E2C3A7AA /* DSFFinderLabels.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = 4EDC150C386D018BB032AC5DB6B2870F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				869154C8A56FC0A5F8D59DE0A812427C /* DSFFinderLabels */,
+				37976E807736A9AC69DF139C2F8240FB /* Pods-DSFFinderLabelsDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		15E3D6362EB7ADD0E0026B12688388A3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2A7C3446C9F82C8AF208754DB429B307 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		583974BD70758482625F6415911E1E40 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				56102E2B677878173FB1433569F82039 /* DSFFinderColorCircleButton.swift in Sources */,
+				5A25A8331BA3FBAD8237CBDE720C2F26 /* DSFFinderColorGridView.swift in Sources */,
+				EC7FF5CED3703A1B161DDAABC7F930A7 /* DSFFinderLabels+objc.swift in Sources */,
+				07C4D1CE4FD96DD0377EAEBC821960F3 /* DSFFinderLabels+Search.swift in Sources */,
+				4A98AFE77B733182B8325044F1DB9499 /* DSFFinderLabels-dummy.m in Sources */,
+				983F9BFA313BDCA6EEE6915A46812126 /* DSFFinderLabels.swift in Sources */,
+				072A173CC646443D0A56C1818E974DDB /* DSFFinderTagsField.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5BC3FF99798E36B62157678A880DF930 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8CFAF93EC877360F5A8051A2B419F09E /* Pods-DSFFinderLabelsDemo-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9B875453C92028AE2371C40BA212DEAC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = DSFFinderLabels;
+			target = 869154C8A56FC0A5F8D59DE0A812427C /* DSFFinderLabels */;
+			targetProxy = 10546FCB105A1C27037FD1DCCE783DF8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		67C9182EF400E45C7DEA8A492DC599D6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 028FF30388AD3A8E3C01DB0E9A359F73 /* Pods-DSFFinderLabelsDemo.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "Target Support Files/Pods-DSFFinderLabelsDemo/Pods-DSFFinderLabelsDemo-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MODULEMAP_FILE = "Target Support Files/Pods-DSFFinderLabelsDemo/Pods-DSFFinderLabelsDemo.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		7440D515053ED0806561AA62F9D68F06 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		B9C1E3C4CBD8CD1D8951A9BA856473D4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7266ACC8A799E893D276F72852A8CE9E /* Pods-DSFFinderLabelsDemo.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "Target Support Files/Pods-DSFFinderLabelsDemo/Pods-DSFFinderLabelsDemo-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MODULEMAP_FILE = "Target Support Files/Pods-DSFFinderLabelsDemo/Pods-DSFFinderLabelsDemo.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		CF018DCE09D052B03A924B0447969A62 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FFA658221BE848D814E313381EFEA761 /* DSFFinderLabels.debug.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				GCC_PREFIX_HEADER = "Target Support Files/DSFFinderLabels/DSFFinderLabels-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/DSFFinderLabels/DSFFinderLabels-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MODULEMAP_FILE = "Target Support Files/DSFFinderLabels/DSFFinderLabels.modulemap";
+				PRODUCT_MODULE_NAME = DSFFinderLabels;
+				PRODUCT_NAME = DSFFinderLabels;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		F093F1E68F69F45D543483A6D4BB3F1D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E3084202DF2BC794B98AE685ADE6B2A7 /* DSFFinderLabels.release.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				GCC_PREFIX_HEADER = "Target Support Files/DSFFinderLabels/DSFFinderLabels-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/DSFFinderLabels/DSFFinderLabels-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MODULEMAP_FILE = "Target Support Files/DSFFinderLabels/DSFFinderLabels.modulemap";
+				PRODUCT_MODULE_NAME = DSFFinderLabels;
+				PRODUCT_NAME = DSFFinderLabels;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		FF78091F2E132A0C4F200C5D32A31F56 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		069A82035CA82CCC1276E30B19EE8587 /* Build configuration list for PBXNativeTarget "DSFFinderLabels" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CF018DCE09D052B03A924B0447969A62 /* Debug */,
+				F093F1E68F69F45D543483A6D4BB3F1D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF78091F2E132A0C4F200C5D32A31F56 /* Debug */,
+				7440D515053ED0806561AA62F9D68F06 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C84A03E5CB32C5E914099072A257DD24 /* Build configuration list for PBXNativeTarget "Pods-DSFFinderLabelsDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				67C9182EF400E45C7DEA8A492DC599D6 /* Debug */,
+				B9C1E3C4CBD8CD1D8951A9BA856473D4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}
